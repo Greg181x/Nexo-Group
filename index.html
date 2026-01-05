@@ -329,13 +329,14 @@ footer{
 @media (max-width: 768px) {
   .typing-title {
     font-size: 1.5rem;
-    width: 18ch;
+    width: 100%;           /* să ocupe tot ecranul */
+    max-width: 90%;        /* puțin padding lateral */
     animation: typing-mobile 2s steps(18, end) forwards;
   }
 
-  @keyframes typing-mobile {
+   @keyframes typing-mobile {
     from { width: 0; }
-    to { width: 18ch; }
+    to { width: 100%; }    /* lățimea finală nu depășește ecranul */
   }
 }
 #menu-toggle {
@@ -650,6 +651,7 @@ Coming Soon
 </body>
 
 </html>
+
 
 
 
