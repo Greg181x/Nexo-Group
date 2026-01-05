@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap" rel="stylesheet">
+<style>
+    body{
+       background-image: url(https://cdn.discordapp.com/attachments/1454526378379579624/1454526892026630306/content.png?ex=6951693a&is=695017ba&hm=ddfdb820dd42dd69cc08d51c9577f54c4fb06a518d3ba79ef0a718431f685bfa&);
+           background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    }
+      h1{
+        margin-top: 100px;
+        color: white;
+    font-family: "Zen Dots", sans-serif;
+    font-size: 3rem;
+    text-align: center;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out forwards;
+    animation-delay: 0.3s;
+}
+ @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+ }
+ .navlinks{
+   font-family: "Zen Dots", sans-serif;
+   display: flex;
+   gap: 50px;
+   justify-content: center;
+ }
+ .navlinks a{
+       color: white;
+   text-decoration: none;
+   gap: 30px;
+   transition: all 0.4s ease;
+ }
+ .navlinks a:hover{
+    color: #2E4F7A;
+ }
+h3 {
+    margin: 100px auto 0;
+    color: white;
+    font-family: "Zen Dots", sans-serif;
+    font-size: 2rem;
+    text-align: center;
+
+    white-space: nowrap;
+    overflow: hidden;
+
+    width: 0;
+    animation: typing 2s steps(22, end) forwards;
+    animation-delay: 0.9s;
+}
+
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 22ch; }
+}
+.typing-title {
+  margin: 100px auto 0;
+  color: white;
+  font-family: "Zen Dots", sans-serif;
+  font-size: 2rem;
+  text-align: center;
+
+  white-space: nowrap;
+  overflow: hidden;
+
+  width: 0;
+  animation: typing 2s steps(22, end) forwards;
+}
+@keyframes typing {
+  from { width: 0; }
+  to { width: 22ch; }
+}
+
+
+      h4{
+        margin-top: 100px;
+        color: white;
+    font-family: "Zen Dots", sans-serif;
+    font-size: 1rem;
+    text-align: center;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out forwards;
+    animation-delay: 0.7s;
+}
+ @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+/* From Uiverse.io by marwam112010 */ 
+.pack-container {
+  position: relative;
+  display: flex;
+  flex: 1 1 300px;
+  max-width: 350px;
+  flex-direction: column;
+  border-radius: 12px;
+  margin-top: 150px;
+ background-color: black;
+  border: 1px solid #fff;
+  padding: 1.6rem;
+  color: #fff;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+.header {
+  position: relative;
+  margin: 0;
+  margin-bottom: 2rem;
+  overflow: hidden;
+  border-radius: 0;
+  border-bottom: 1px solid #fff;
+  background: transparent;
+  padding-bottom: 1rem;
+  text-align: center;
+}
+
+.title {
+  display: block;
+  font-family: sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  text-transform: uppercase;
+  color: #fff
+}
+
+.price-container {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 4px;
+  font-family: sans-serif;
+  font-size: 4.5rem;
+  line-height: 1;
+}
+
+.price-container span:first-child {
+  margin-top: 10px;
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+}
+
+.price-container span:last-child {
+  align-self: flex-end;
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+}
+
+.lists {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.list {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.list span {
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  background-color: rgba(255, 255, 255, 0.185);
+  height: 30px;
+  width: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.list span svg {
+  height: 12px;
+  width: 12px;
+}
+
+.list p {
+  display: block;
+  font-family: sans-serif;
+}
+
+.button-container {
+  margin-top: 20px;
+  padding: 0;
+}
+
+.button-container button {
+  display: block;
+  width: 100%;
+  background-color: #fff;
+  padding: 10px 20px;
+  text-transform: uppercase;
+  color: #000;
+  outline: 0;
+  border: 0;
+  border-radius: 10px;
+}
+.packs {
+  display: flex;
+align-items: center;
+justify-content: center;
+  gap: 100px;
+  margin-top: 10px;
+  flex-wrap: wrap; 
+}
+.pack-container {
+  opacity: 0;                  
+  transform: translateY(20px); 
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  animation-delay: 1s;
+}
+
+.pack-container.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+.socials img{
+  height: 40px;
+  width: 40px;
+  margin-top: 50px;
+  transition: filter 0.3s ease;
+}
+.socials:hover img {
+  filter: blur(4px);
+}
+.socials img:hover{
+ filter: blur(0);
+}
+.socials{
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+footer{
+  color: white;
+  font-family: "Zen Dots", sans-serif;
+  text-align: center;
+  margin-top: 150px;
+}
+.packs a{
+  text-decoration: none;
+}
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: white;
+}
+@media (max-width: 768px) {
+
+  h1 {
+    font-size: 2rem;
+    margin-top: 60px;
+    text-align: center;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  h4 {
+    font-size: 0.9rem;
+    padding: 0 10px;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .navlinks {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    background: rgba(0,0,0,0.9);
+    align-items: center;
+    gap: 20px;
+    padding: 20px 0;
+  }
+
+  .navlinks.active {
+    display: flex;
+  }
+
+  .packs {
+    gap: 40px;
+  }
+
+  .pack-container {
+    max-width: 90%;
+  }
+
+  .socials img {
+    width: 32px;
+    height: 32px;
+  }
+}
+@media (max-width: 768px) {
+  .typing-title {
+    font-size: 1.5rem;
+    width: 18ch;
+    animation: typing-mobile 2s steps(18, end) forwards;
+  }
+
+  @keyframes typing-mobile {
+    from { width: 0; }
+    to { width: 18ch; }
+  }
+}
+#menu-toggle {
+  display: none;
+}
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: white;
+  transition: 0.3s;
+}
+@media (max-width: 768px) {
+
+  .hamburger {
+    display: flex;
+    background-color: black;
+  }
+
+   .navlinks {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background: rgba(0,0,0,0.95);
+
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 0;
+
+    opacity: 0;
+    transform: translateY(-10px);
+    pointer-events: none;
+
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  #menu-toggle:checked ~ .navlinks {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+}
+#menu-toggle:checked + .hamburger span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+#menu-toggle:checked + .hamburger span:nth-child(2) {
+  opacity: 0;
+}
+
+#menu-toggle:checked + .hamburger span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+.navbar {
+  position: relative;
+  z-index: 1000;
+}
+@media (max-width: 768px) {
+
+  .hamburger {
+    display: flex;
+    background-color: black;
+    padding: 12px;              
+    border-radius: 10px;
+    z-index: 1001;
+  }
+
+  .hamburger span {
+    background: white;
+  }
+}
+
+ </style>
+</head>
+<body>
+<nav class="navbar">
+  <div class="logo">NEXO</div>
+
+    <input type="checkbox" id="menu-toggle">
+
+  <!-- hamburger -->
+  <label for="menu-toggle" class="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </label>
+
+  <div class="navlinks" id="navlinks">
+    <a href="index.html">HOME</a>
+    <a href="about.html">ABOUT</a>
+    <a href="divisions.html">DIVISIONS</a>
+    <a href="updates.html">UPDATES</a>
+    <a href="contact.html">CONTACT</a>
+    <a href="careers.html">CAREERS</a>
+  </div>
+</nav>
+
+    <h1>WELCOME TO NEXO<br>GROUP</h1>
+    <h4>Nexo Group is a future-focused initiative designed to build, connect, and scale talent, teams, and ideas<br>
+across multiple industries.</h4>
+    <h3 class="typing-title">NEXO Divisions</h3>
+    <div class="packs">
+   <!-- From Uiverse.io by marwam112010 --> 
+ <div class="pack-container">
+    <div class="header">
+      <p class="title">
+        Nexo eSports
+      </p>
+    </div>
+    <div>
+      <ul class="lists">
+        <li class="list">
+          <span>
+            <svg aria-hidden="true" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4.5 12.75l6 6 9-13.5" stroke-linejoin="round" stroke-linecap="round"></path>
+            </svg>
+          </span>
+          <p>
+          Focus: Supercell Titles
+          </p>
+        </li>
+        <li class="list">
+          <span>
+            <svg aria-hidden="true" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4.5 12.75l6 6 9-13.5" stroke-linejoin="round" stroke-linecap="round"></path>
+            </svg>
+          </span>
+          <p>
+            Level: Community / Semi-Pro
+          </p>
+        </li>
+        <li class="list">
+          <span>
+            <svg aria-hidden="true" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4.5 12.75l6 6 9-13.5" stroke-linejoin="round" stroke-linecap="round"></path>
+            </svg>
+          </span>
+          <p>
+          Identity: #NXWIN
+          </p>
+        </li>
+        <li class="list">
+          <span>
+            <svg aria-hidden="true" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4.5 12.75l6 6 9-13.5" stroke-linejoin="round" stroke-linecap="round"></path>
+            </svg>
+          </span>
+          <p>
+           Activities: Teams, tournaments, etc.
+          </p>
+        </li>
+      </ul>
+    </div>
+    <div class="button-container">
+      <a href="divisions.html">
+      <button type="button">
+        More Info
+      </button>
+      </a>
+    </div>
+  </div>
+  <!-- From Uiverse.io by marwam112010 --> 
+ <div class="pack-container">
+    <div class="header">
+      <p class="title">
+        Nexo CREATIVE
+      </p>
+    </div>
+    <div>
+      <ul class="lists">
+        <li class="list">
+          <span>
+            <svg aria-hidden="true" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4.5 12.75l6 6 9-13.5" stroke-linejoin="round" stroke-linecap="round"></path>
+            </svg>
+          </span>
+          <p>
+          Content Creation
+          </p>
+        </li>
+        <li class="list">
+          <span>
+            <svg aria-hidden="true" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4.5 12.75l6 6 9-13.5" stroke-linejoin="round" stroke-linecap="round"></path>
+            </svg>
+          </span>
+          <p>
+            Branding
+          </p>
+        </li>
+        <li class="list">
+          <span>
+            <svg aria-hidden="true" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4.5 12.75l6 6 9-13.5" stroke-linejoin="round" stroke-linecap="round"></path>
+            </svg>
+          </span>
+          <p>
+   Video Production
+          </p>
+        </li>
+        <li class="list">
+          <span>
+            <svg aria-hidden="true" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4.5 12.75l6 6 9-13.5" stroke-linejoin="round" stroke-linecap="round"></path>
+            </svg>
+          </span>
+          <p>
+  Social Media
+          </p>
+        </li>
+      </ul>
+    </div>
+    <div class="button-container">
+      <a href="divisions.html">
+      <button type="button">
+        More Info
+      </button>
+      </a>
+    </div>
+  </div>
+  <div class="pack-container">
+    <div class="header">
+      <p class="title">
+        Future Divisions
+      </p>
+    </div>
+    <div>
+      <ul class="lists">
+        <li class="list">
+          <span>
+            <svg aria-hidden="true" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4.5 12.75l6 6 9-13.5" stroke-linejoin="round" stroke-linecap="round"></path>
+            </svg>
+          </span>
+          <p>
+          Coming Soon
+          </p>
+        </li>
+        <li class="list">
+          <span>
+            <svg aria-hidden="true" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4.5 12.75l6 6 9-13.5" stroke-linejoin="round" stroke-linecap="round"></path>
+            </svg>
+          </span>
+          <p>
+            Coming Soon
+          </p>
+        </li>
+        <li class="list">
+          <span>
+            <svg aria-hidden="true" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4.5 12.75l6 6 9-13.5" stroke-linejoin="round" stroke-linecap="round"></path>
+            </svg>
+          </span>
+          <p>
+Coming Soon
+          </p>
+        </li>
+        <li class="list">
+          <span>
+            <svg aria-hidden="true" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4.5 12.75l6 6 9-13.5" stroke-linejoin="round" stroke-linecap="round"></path>
+            </svg>
+          </span>
+          <p>
+  Coming Soon
+          </p>
+        </li>
+      </ul>
+    </div>
+    <div class="button-container">
+      <button type="button">
+        Coming Soon
+      </button>
+    </div>
+  </div>
+  </div>
+  <script>
+  window.addEventListener('DOMContentLoaded', () => {
+    const cards = document.querySelectorAll('.pack-container');
+    cards.forEach((card, index) => {
+      setTimeout(() => {
+        card.classList.add('show');
+      }, index * 200); 
+    });
+  });
+</script>
+<h3 class="typing-title">NEXO Socials</h3>
+<h4>Help NEXO Group by Joining our Socials</h4>
+<div class="socials">
+  <a href="https://discord.gg/GnzxwbP66">
+<img src="https://static.wixstatic.com/media/10c80d_a9e8fb939735489bbdc29eb3b04934b0~mv2.png">
+</a>
+<a href="https://www.instagram.com/nex_oesports?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">
+<img src="https://static.wixstatic.com/media/10c80d_4ceb22a5fda24118abd7603d537ed480~mv2.png">
+</a>
+<a href="https://x.com/greg_esports?t=WgezL2ohru8kL-PVRLrZBQ&s=09">
+<img src="https://static.wixstatic.com/media/10c80d_bac6921ada5e431189782da1966d9824~mv2.png">
+</a>
+</div>
+<footer>
+  &copy; 2025 NEXO Group. All rights reserved.
+</footer>
+</body>
+</html>

@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap" rel="stylesheet">
+</head>
+<style>
+     body{
+         background-image: url(https://cdn.discordapp.com/attachments/1454526378379579624/1454526892026630306/content.png?ex=6951693a&is=695017ba&hm=ddfdb820dd42dd69cc08d51c9577f54c4fb06a518d3ba79ef0a718431f685bfa&);
+             background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    }
+      h1{
+        margin-top: 100px;
+        color: white;
+    font-family: "Zen Dots", sans-serif;
+    font-size: 3rem;
+    text-align: center;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out forwards;
+    animation-delay: 0.3s;
+}
+ @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+ }
+ .navlinks{
+   font-family: "Zen Dots", sans-serif;
+   display: flex;
+   gap: 50px;
+   justify-content: center;
+ }
+ .navlinks a{
+       color: white;
+   text-decoration: none;
+   gap: 30px;
+   transition: all 0.4s ease;
+ }
+ .navlinks a:hover{
+    color: #2E4F7A;
+ }
+h3 {
+    margin: 100px auto 0;
+    color: white;
+    font-family: "Zen Dots", sans-serif;
+    font-size: 2rem;
+    text-align: center;
+
+    white-space: nowrap;
+    overflow: hidden;
+
+    width: 0;
+    animation: typing 2s steps(22, end) forwards;
+    animation-delay: 0.9s;
+}
+
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 22ch; }
+}
+h4{
+        margin-top: 100px;
+        color: white;
+    font-family: "Zen Dots", sans-serif;
+    font-size: 1rem;
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+    width: 50%;
+    align-items: center;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out forwards;
+    animation-delay: 0.7s;
+}
+ @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        /* =========================
+   RESPONSIVE DESIGN
+========================= */
+
+/* TABLET (max 1024px) */
+@media (max-width: 1024px) {
+    h1 {
+        font-size: 2.5rem;
+        margin-top: 80px;
+    }
+
+    h3 {
+        font-size: 1.7rem;
+    }
+
+    h4 {
+        width: 70%;
+        font-size: 0.95rem;
+    }
+
+    .navlinks {
+        gap: 30px;
+        flex-wrap: wrap;
+    }
+}
+
+/* MOBILE (max 768px) */
+@media (max-width: 768px) {
+    body {
+        background-position: top;
+    }
+
+    .navlinks {
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 20px;
+    }
+
+    .navlinks a {
+        font-size: 0.9rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+        margin-top: 60px;
+        padding: 0 15px;
+    }
+
+    h3 {
+        font-size: 1.4rem;
+        animation: typing 2s steps(18, end) forwards;
+    }
+
+    @keyframes typing {
+        from { width: 0; }
+        to { width: 18ch; }
+    }
+
+    h4 {
+        width: 90%;
+        font-size: 0.9rem;
+        line-height: 1.6;
+    }
+}
+
+/* SMALL MOBILE (max 480px) */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.6rem;
+    }
+
+    h3 {
+        font-size: 1.2rem;
+    }
+
+    h4 {
+        font-size: 0.85rem;
+    }
+}
+#menu-toggle {
+  display: none;
+}
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: white;
+  transition: 0.3s;
+}
+@media (max-width: 768px) {
+
+  .hamburger {
+    display: flex;
+    background-color: black;
+  }
+
+   .navlinks {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background: rgba(0,0,0,0.95);
+
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 0;
+
+    opacity: 0;
+    transform: translateY(-10px);
+    pointer-events: none;
+
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  #menu-toggle:checked ~ .navlinks {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+}
+#menu-toggle:checked + .hamburger span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+#menu-toggle:checked + .hamburger span:nth-child(2) {
+  opacity: 0;
+}
+
+#menu-toggle:checked + .hamburger span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+.navbar {
+  position: relative;
+  z-index: 1000;
+}
+@media (max-width: 768px) {
+
+  .hamburger {
+    display: flex;
+    background-color: black;
+    padding: 12px;              
+    border-radius: 10px;
+    z-index: 1001;
+  }
+
+  .hamburger span {
+    background: white;
+  }
+}
+footer{
+  color: white;
+  font-family: "Zen Dots", sans-serif;
+  text-align: center;
+  margin-top: 150px;
+}
+</style>
+<body>
+<nav class="navbar">
+  <div class="logo">NEXO</div>
+
+    <input type="checkbox" id="menu-toggle">
+
+  <!-- hamburger -->
+  <label for="menu-toggle" class="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </label>
+
+  <div class="navlinks" id="navlinks">
+    <a href="index.html">HOME</a>
+    <a href="about.html">ABOUT</a>
+    <a href="divisions.html">DIVISIONS</a>
+    <a href="updates.html">UPDATES</a>
+    <a href="contact.html">CONTACT</a>
+    <a href="careers.html">CAREERS</a>
+  </div>
+</nav>
+    <h1>NEXO Divisions</h1>
+    <br><br><br><br>
+     <h3>Nexo Creative</h3>
+     <br><br><br><br>
+    <h4>Nexo Creative is our internal creative education and staff development program.
+      <br>
+It’s made to help passionate creatives learn skills, build experience, and earn recognition.
+<br>
+ What makes it special:
+ <br>
+- Real industry-based modules
+<br>
+- Weekly calls with Nexo Coaches
+<br>
+- Pathway to paid staff positions
+<br>
+- Certification upon completion</h4>
+<br><br><br><br><br><br><br><br>
+<h3>Nexo eSports</h3>
+<br><br><br><br>
+<h4>NEXO eSports is the division focused on organizing and managing competitive tournaments. We create well-structured, fair, and engaging competitions for players and teams, offering a professional environment where skill, teamwork, and fair play come first.</h4>
+<footer>
+  &copy; 2025 NEXO Group. All rights reserved.
+</footer>
+</body>
+</html>
