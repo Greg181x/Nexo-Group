@@ -50,6 +50,21 @@
  .navlinks a:hover{
     color: #2E4F7A;
  }
+      .navlinks a::after {
+  content: "";
+  position: absolute;
+  left: 50%;            /* porneste din centru */
+  bottom: -4px;         /* distanta fata de text */
+  width: 0;             /* initial invizibil */
+  height: 4px;          /* grosimea liniei */
+  background-color: #2E4F7A;
+   transform: translateX(-50%); /* centrăm linia */
+  transition: width 0.4s ease, left 0.4s ease;
+  transform: translateX(-50%); /* centrăm linia */
+}
+.navlinks a:hover::after {
+  width: 100%; /* linia se intinde complet */
+}
  h1{
         margin-top: 100px;
         color: white;
@@ -551,4 +566,5 @@ Rooted in Germany and shaped by a global mindset, Nexo Esports aims to become a 
 </body>
 
 </html>
+
 
