@@ -779,47 +779,60 @@ footer{
 }
 @media (max-width: 768px) {
 
+/* MOBILE NAVBAR */
+@media (max-width: 768px) {
+
   .hamburger {
     display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
     background-color: black;
+    padding: 12px;
+    border-radius: 10px;
+    z-index: 1001;
   }
 
-   .navlinks {
+  .hamburger span {
+    width: 25px;
+    height: 3px;
+    background: white;
+    transition: 0.3s;
+  }
+
+  .navlinks {
+    flex-direction: column;
     position: absolute;
     top: 70px;
     left: 0;
     width: 100%;
     background: rgba(0,0,0,0.95);
-
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
     padding: 20px 0;
+    gap: 20px;
 
-    opacity: 0;
-    transform: translateY(-10px);
-    pointer-events: none;
-
-    transition: opacity 0.3s ease, transform 0.3s ease;
+    display: none; /* ascuns inițial */
+    z-index: 1000;
   }
 
+  /* afișează meniul când checkbox-ul e bifat */
   #menu-toggle:checked ~ .navlinks {
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events: auto;
+    display: flex;
+  }
+
+  /* animația hamburger */
+  #menu-toggle:checked + .hamburger span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  #menu-toggle:checked + .hamburger span:nth-child(2) {
+    opacity: 0;
+  }
+
+  #menu-toggle:checked + .hamburger span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
   }
 }
-#menu-toggle:checked + .hamburger span:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
-}
 
-#menu-toggle:checked + .hamburger span:nth-child(2) {
-  opacity: 0;
-}
-
-#menu-toggle:checked + .hamburger span:nth-child(3) {
-  transform: rotate(-45deg) translate(5px, -5px);
-}
 .navbar {
   position: relative;
   z-index: 1000;
@@ -848,7 +861,6 @@ footer{
   z-index: 10000;
   transition: width 0.25s ease-out;
 }
-
 </style>
 <body>
   <!-- Plasează chiar după <body> -->
@@ -969,6 +981,7 @@ window.addEventListener('scroll', () => {
 </footer>
 </body>
 </html>
+
 
 
 
