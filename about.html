@@ -10,7 +10,7 @@
 </head>
 <style>
      body{
-       background-image: url("background.png");
+       background-image: url("pic/background.png");
            background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -40,18 +40,31 @@
    display: flex;
    gap: 50px;
    justify-content: center;
+       opacity: 0;
+    animation: fadeInUp 0.8s ease-out forwards;
+    animation-delay: 0.1s;
  }
+  @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
  .navlinks a{
        color: white;
    text-decoration: none;
-     position: relative;
    gap: 30px;
+   position: relative;
    transition: all 0.4s ease;
  }
  .navlinks a:hover{
     color: #2E4F7A;
  }
-      .navlinks a::after {
+  .navlinks a::after {
   content: "";
   position: absolute;
   left: 50%;            /* porneste din centru */
@@ -474,9 +487,88 @@ h4{
     background: white;
   }
 }
+.card-client {
+  background: linear-gradient(145deg, #000000, #111111);
+  width: 13rem;
+  padding: 25px 20px;
+  border: 2px solid #ffffff;
+  box-shadow: 0 6px 10px rgba(207, 212, 222, 0.1);
+  border-radius: 15px;
+  text-align: center;
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
 
+.card-client::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(120deg, #2E4F7A, #7cdacc, #2E4F7A, #7cdacc);
+  background-size: 400% 400%;
+  transition: all 0.5s ease;
+  filter: blur(20px);
+  opacity: 0;
+  z-index: 0;
+  transform: rotate(0deg);
+}
+
+.card-client:hover::before {
+  opacity: 0.4;
+  animation: gradientShift 3s linear infinite;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.card-client:hover {
+  transform: translateY(-15px) scale(1.05);
+  box-shadow: 0 20px 30px rgba(46, 79, 122, 0.5);
+  border-color: #2E4F7A;
+}
+
+.card-client * {
+  position: relative;
+  z-index: 1;
+}
+
+.user-picture svg {
+  transition: transform 0.4s ease;
+}
+
+.card-client:hover .user-picture svg {
+  transform: rotate(-10deg) scale(1.2);
+}
+#progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 5px;
+  background: linear-gradient(90deg, #2E4F7A, #32a6ff);
+  width: 0%;
+  z-index: 10000;
+  transition: width 0.25s ease-out;
+}
 </style>
 <body>
+    <!-- Plasează chiar după <body> -->
+<div id="progress-bar"></div>
+<script>
+window.addEventListener('scroll', () => {
+  const scrollTop = document.documentElement.scrollTop;
+  const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const scrollPercent = (scrollTop / scrollHeight) * 100;
+  document.getElementById('progress-bar').style.width = scrollPercent + '%';
+});
+</script>
 <nav class="navbar">
   <div class="logo">NEXO</div>
 
@@ -499,7 +591,28 @@ h4{
   </div>
 </nav>
     <h1>About NEXO Group</h1>
-    <h3>Our Vision</h3>
+  <h3 id="typing-text"></h3>
+<script>
+const texts = ["Our Vision", "Our Mission", "Our Future"];
+let index = 0;
+const el = document.getElementById('typing-text');
+
+function typeWriter(text, i = 0) {
+  if(i < text.length){
+    el.innerHTML = text.substring(0, i+1);
+    setTimeout(() => typeWriter(text, i+1), 100);
+  } else {
+    setTimeout(() => {
+      el.innerHTML = '';
+      index = (index + 1) % texts.length;
+      typeWriter(texts[index]);
+    }, 2000);
+  }
+}
+
+typeWriter(texts[index]);
+</script>
+
     <h4>Nexo Group is a future-focused initiative designed to build, connect, and scale talent, teams, and ideas
 across multiple industries. <br>Current pillars include Esports and Creative, with room for future divisions.</h4>
 <div class="about">
@@ -565,8 +678,4 @@ Rooted in Germany and shaped by a global mindset, Nexo Esports aims to become a 
   &copy; 2025 NEXO Group. All rights reserved.
 </footer>
 </body>
-
 </html>
-
-
-
