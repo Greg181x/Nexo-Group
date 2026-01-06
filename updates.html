@@ -315,33 +315,27 @@ footer{
 
   .hamburger {
     display: flex;
-    background-color: black;
   }
 
    .navlinks {
-  position: absolute;
-  top: 70px;
-  left: 0;
-  width: 100%;
-  background: rgba(0,0,0,0.95);
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-  padding: 20px 0;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: rgba(0,0,0,0.95);
+        padding: 20px 0;
+        gap: 20px;
 
-  opacity: 0;
-  transform: translateY(-10px);
-  pointer-events: none;
-  display: flex;  /* flex, dar invizibil prin opacity */
-  z-index: 100;
-  transition: opacity 0.3s ease, transform 0.3s ease;
+        display: none; /* ascuns inițial */
+        z-index: 100;
   }
 
   #menu-toggle:checked ~ .navlinks {
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events: auto;
-	  display: flex;
+ display: flex; /* afișează când checkbox-ul e bifat */
+  }
+	  .navlinks.active {
+    display: flex;
   }
 }
 #menu-toggle:checked + .hamburger span:nth-child(1) {
@@ -458,5 +452,6 @@ window.addEventListener('scroll', () => {
 
 </body>
 </html>
+
 
 
