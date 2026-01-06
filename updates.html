@@ -319,30 +319,29 @@ footer{
   }
 
    .navlinks {
-    position: absolute;
-    top: 70px;
-    left: 0;
-    width: 100%;
-    background: rgba(0,0,0,0.95);
+  position: absolute;
+  top: 70px;
+  left: 0;
+  width: 100%;
+  background: rgba(0,0,0,0.95);
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 20px 0;
 
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    padding: 20px 0;
-
-    opacity: 0;
-    transform: translateY(-10px);
-    pointer-events: none;
-	   display: none; /* ascuns inițial */
-    z-index: 100;
-    transition: opacity 0.3s ease, transform 0.3s ease;
+  opacity: 0;
+  transform: translateY(-10px);
+  pointer-events: none;
+  display: flex;  /* flex, dar invizibil prin opacity */
+  z-index: 100;
+  transition: opacity 0.3s ease, transform 0.3s ease;
   }
 
   #menu-toggle:checked ~ .navlinks {
     opacity: 1;
     transform: translateY(0);
     pointer-events: auto;
-	  dipslay: flex;
+	  display: flex;
   }
 }
 #menu-toggle:checked + .hamburger span:nth-child(1) {
@@ -459,4 +458,5 @@ window.addEventListener('scroll', () => {
 
 </body>
 </html>
+
 
