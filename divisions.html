@@ -50,6 +50,21 @@ background-image: url("background.png");
  .navlinks a:hover{
     color: #2E4F7A;
  }
+      .navlinks a::after {
+  content: "";
+  position: absolute;
+  left: 50%;            /* porneste din centru */
+  bottom: -4px;         /* distanta fata de text */
+  width: 0;             /* initial invizibil */
+  height: 4px;          /* grosimea liniei */
+  background-color: #2E4F7A;
+   transform: translateX(-50%); /* centrăm linia */
+  transition: width 0.4s ease, left 0.4s ease;
+  transform: translateX(-50%); /* centrăm linia */
+}
+.navlinks a:hover::after {
+  width: 100%; /* linia se intinde complet */
+}
 h3 {
     margin: 100px auto 0;
     color: white;
@@ -306,5 +321,6 @@ It’s made to help passionate creatives learn skills, build experience, and ear
 </body>
 
 </html>
+
 
 
