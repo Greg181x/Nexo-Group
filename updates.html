@@ -88,7 +88,8 @@
 
     white-space: nowrap;
     overflow: hidden;
-
+	 width: 22ch; /* lățimea finală a textului */
+  max-width: 90%; /* responsive pe mobil */
     width: 0;
     animation: typing 2s steps(22, end) forwards;
     animation-delay: 0.9s;
@@ -245,6 +246,7 @@ footer{
 
   h3 {
     font-size: 1.3rem;
+	  width: 16ch;
     animation: typing 2s steps(16, end) forwards;
   }
 
@@ -331,7 +333,8 @@ footer{
     opacity: 0;
     transform: translateY(-10px);
     pointer-events: none;
-
+	   display: none; /* ascuns inițial */
+    z-index: 100;
     transition: opacity 0.3s ease, transform 0.3s ease;
   }
 
@@ -339,6 +342,7 @@ footer{
     opacity: 1;
     transform: translateY(0);
     pointer-events: auto;
+	  dipslay: flex;
   }
 }
 #menu-toggle:checked + .hamburger span:nth-child(1) {
@@ -455,3 +459,4 @@ window.addEventListener('scroll', () => {
 
 </body>
 </html>
+
