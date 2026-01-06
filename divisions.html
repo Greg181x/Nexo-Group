@@ -7,12 +7,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap" rel="stylesheet">
+</head>
 <style>
-    body{
-       background-image: url("background.png");
-           background-repeat: no-repeat;
+     body{
+         background-image: url("background.png");
+             background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    min-height: 100vh;
     }
       h1{
         margin-top: 100px;
@@ -22,7 +24,7 @@
     text-align: center;
     opacity: 0;
     animation: fadeInUp 0.8s ease-out forwards;
-    animation-delay: 0.4s;
+    animation-delay: 0.3s;
 }
  @keyframes fadeInUp {
             from {
@@ -63,7 +65,7 @@
  .navlinks a:hover{
     color: #2E4F7A;
  }
- .navlinks a::after {
+  .navlinks a::after {
   content: "";
   position: absolute;
   left: 50%;            /* porneste din centru */
@@ -98,31 +100,16 @@ h3 {
     from { width: 0; }
     to { width: 22ch; }
 }
-.typing-title {
-  margin: 100px auto 0;
-  color: white;
-  font-family: "Zen Dots", sans-serif;
-  font-size: 2rem;
-  text-align: center;
-
-  white-space: nowrap;
-  overflow: hidden;
-
-  width: 0;
-  animation: typing 2s steps(22, end) forwards;
-}
-@keyframes typing {
-  from { width: 0; }
-  to { width: 22ch; }
-}
-
-
-      h4{
+h4{
         margin-top: 100px;
         color: white;
     font-family: "Zen Dots", sans-serif;
     font-size: 1rem;
     text-align: center;
+    display: block;
+    margin: 0 auto;
+    width: 50%;
+    align-items: center;
     opacity: 0;
     animation: fadeInUp 0.8s ease-out forwards;
     animation-delay: 0.7s;
@@ -137,235 +124,84 @@ h3 {
                 transform: translateY(0);
             }
         }
+        /* =========================
+   RESPONSIVE DESIGN
+========================= */
 
-/* From Uiverse.io by marwam112010 */ 
-.pack-container {
-  position: relative;
-  display: flex;
-  flex: 1 1 300px;
-  max-width: 350px;
-  flex-direction: column;
-  border-radius: 12px;
-  margin-top: 150px;
- background-color: black;
-  border: 1px solid #fff;
-  padding: 1.6rem;
-  color: #fff;
-  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-}
+/* TABLET (max 1024px) */
+@media (max-width: 1024px) {
+    h1 {
+        font-size: 2.5rem;
+        margin-top: 80px;
+    }
 
-.header {
-  position: relative;
-  margin: 0;
-  margin-bottom: 2rem;
-  overflow: hidden;
-  border-radius: 0;
-  border-bottom: 1px solid #fff;
-  background: transparent;
-  padding-bottom: 1rem;
-  text-align: center;
+    h3 {
+        font-size: 1.7rem;
+    }
+
+    h4 {
+        width: 70%;
+        font-size: 0.95rem;
+    }
+
+    .navlinks {
+        gap: 30px;
+        flex-wrap: wrap;
+    }
 }
 
-.title {
-  display: block;
-  font-family: sans-serif;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  text-transform: uppercase;
-  color: #fff
-}
-
-.price-container {
-  margin-top: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 4px;
-  font-family: sans-serif;
-  font-size: 4.5rem;
-  line-height: 1;
-}
-
-.price-container span:first-child {
-  margin-top: 10px;
-  font-size: 2.25rem;
-  line-height: 2.5rem;
-}
-
-.price-container span:last-child {
-  align-self: flex-end;
-  font-size: 2.25rem;
-  line-height: 2.5rem;
-}
-
-.lists {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.list {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.list span {
-  border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.24);
-  background-color: rgba(255, 255, 255, 0.185);
-  height: 30px;
-  width: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.list span svg {
-  height: 12px;
-  width: 12px;
-}
-
-.list p {
-  display: block;
-  font-family: sans-serif;
-}
-
-.button-container {
-  margin-top: 20px;
-  padding: 0;
-}
-
-.button-container button {
-  display: block;
-  width: 100%;
-  background-color: #fff;
-  padding: 10px 20px;
-  text-transform: uppercase;
-  color: #000;
-  outline: 0;
-  border: 0;
-  border-radius: 10px;
-}
-.packs {
-  display: flex;
-align-items: center;
-justify-content: center;
-  gap: 100px;
-  margin-top: 10px;
-  flex-wrap: wrap; 
-}
-.pack-container {
-  opacity: 0;                  
-  transform: translateY(20px); 
-  transition: opacity 0.6s ease, transform 0.6s ease;
-  animation-delay: 1s;
-}
-
-.pack-container.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-.socials img{
-  height: 40px;
-  width: 40px;
-  margin-top: 50px;
-  transition: filter 0.3s ease;
-}
-.socials:hover img {
-  filter: blur(4px);
-}
-.socials img:hover{
- filter: blur(0);
-}
-.socials{
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-}
-footer{
-  color: white;
-  font-family: "Zen Dots", sans-serif;
-  text-align: center;
-  margin-top: 150px;
-}
-.packs a{
-  text-decoration: none;
-}
-.hamburger {
-  display: none;
-  flex-direction: column;
-  cursor: pointer;
-  gap: 5px;
-}
-
-.hamburger span {
-  width: 25px;
-  height: 3px;
-  background: white;
-}
+/* MOBILE (max 768px) */
 @media (max-width: 768px) {
+    body {
+        background-position: top;
+    }
 
-  h1 {
-    font-size: 2rem;
-    margin-top: 60px;
-    text-align: center;
-  }
+    .navlinks {
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 20px;
+    }
 
-  h3 {
-    font-size: 1.5rem;
-    text-align: center;
-  }
+    .navlinks a {
+        font-size: 0.9rem;
+    }
 
-  h4 {
-    font-size: 0.9rem;
-    padding: 0 10px;
-  }
+    h1 {
+        font-size: 2rem;
+        margin-top: 60px;
+        padding: 0 15px;
+    }
 
-  .hamburger {
-    display: flex;
-  }
+    h3 {
+        font-size: 1.4rem;
+        animation: typing 2s steps(18, end) forwards;
+    }
 
-  .navlinks {
-    position: absolute;
-    top: 70px;
-    left: 0;
-    width: 100%;
-    flex-direction: column;
-    background: rgba(0,0,0,0.9);
-    align-items: center;
-    gap: 20px;
-    padding: 20px 0;
-  }
+    @keyframes typing {
+        from { width: 0; }
+        to { width: 18ch; }
+    }
 
-  .navlinks.active {
-    display: flex;
-  }
-
-  .packs {
-    gap: 40px;
-  }
-
-  .pack-container {
-    max-width: 90%;
-  }
-
-  .socials img {
-    width: 32px;
-    height: 32px;
-  }
+    h4 {
+        width: 90%;
+        font-size: 0.9rem;
+        line-height: 1.6;
+    }
 }
-@media (max-width: 768px) {
-  .typing-title {
-    font-size: 1.5rem;
-    width: 18ch;
-    animation: typing-mobile 2s steps(18, end) forwards;
-  }
 
-  @keyframes typing-mobile {
-    from { width: 0; }
-    to { width: 18ch; }
-  }
+/* SMALL MOBILE (max 480px) */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.6rem;
+    }
+
+    h3 {
+        font-size: 1.2rem;
+    }
+
+    h4 {
+        font-size: 0.85rem;
+    }
 }
 #menu-toggle {
   display: none;
@@ -444,34 +280,11 @@ footer{
     background: white;
   }
 }
-.counters {
-  display: flex;
-  justify-content: center;
-  gap: 60px;
-  margin-top: 80px;
-  flex-wrap: wrap;
+footer{
+  color: white;
+  font-family: "Zen Dots", sans-serif;
   text-align: center;
-}
-
-.counter span {
-  font-size: 3rem;
-  font-family: "Zen Dots", sans-serif;
-  color: white;
-  display: block;
-}
-
-.counter p {
-  font-family: "Zen Dots", sans-serif;
-  color: white;
-  margin-top: 10px;
-}
-@media (max-width: 768px) {
-  .counter-number {
-    font-size: 2rem;
-  }
-  .counters {
-    gap: 30px;
-  }
+  margin-top: 150px;
 }
 #progress-bar {
   position: fixed;
@@ -483,8 +296,7 @@ footer{
   z-index: 10000;
   transition: width 0.25s ease-out;
 }
- </style>
-</head>
+</style>
 <body>
     <!-- Plasează chiar după <body> -->
 <div id="progress-bar"></div>
@@ -517,264 +329,27 @@ window.addEventListener('scroll', () => {
     <a href="careers.html">CAREERS</a>
   </div>
 </nav>
-
-    <h1>WELCOME TO NEXO<br>GROUP</h1>
-    <h4>Nexo Group is a future-focused initiative designed to build, connect, and scale talent, teams, and ideas<br>
-across multiple industries.</h4>
-    <h3 class="typing-title">NEXO Divisions</h3>
-    <div class="packs">
-   <!-- From Uiverse.io by marwam112010 --> 
- <div class="pack-container">
-    <div class="header">
-      <p class="title">
-        Nexo eSports
-      </p>
-    </div>
-    <div>
-      <ul class="lists">
-        <li class="list">
-          <span>
-            <svg aria-hidden="true" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M4.5 12.75l6 6 9-13.5" stroke-linejoin="round" stroke-linecap="round"></path>
-            </svg>
-          </span>
-          <p>
-          Focus: Supercell Titles
-          </p>
-        </li>
-        <li class="list">
-          <span>
-            <svg aria-hidden="true" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M4.5 12.75l6 6 9-13.5" stroke-linejoin="round" stroke-linecap="round"></path>
-            </svg>
-          </span>
-          <p>
-            Level: Community / Semi-Pro
-          </p>
-        </li>
-        <li class="list">
-          <span>
-            <svg aria-hidden="true" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M4.5 12.75l6 6 9-13.5" stroke-linejoin="round" stroke-linecap="round"></path>
-            </svg>
-          </span>
-          <p>
-          Identity: #NXWIN
-          </p>
-        </li>
-        <li class="list">
-          <span>
-            <svg aria-hidden="true" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M4.5 12.75l6 6 9-13.5" stroke-linejoin="round" stroke-linecap="round"></path>
-            </svg>
-          </span>
-          <p>
-           Activities: Teams, tournaments, etc.
-          </p>
-        </li>
-      </ul>
-    </div>
-    <div class="button-container">
-      <a href="divisions.html">
-      <button type="button">
-        More Info
-      </button>
-      </a>
-    </div>
-  </div>
-  <!-- From Uiverse.io by marwam112010 --> 
- <div class="pack-container">
-    <div class="header">
-      <p class="title">
-        Nexo CREATIVE
-      </p>
-    </div>
-    <div>
-      <ul class="lists">
-        <li class="list">
-          <span>
-            <svg aria-hidden="true" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M4.5 12.75l6 6 9-13.5" stroke-linejoin="round" stroke-linecap="round"></path>
-            </svg>
-          </span>
-          <p>
-          Content Creation
-          </p>
-        </li>
-        <li class="list">
-          <span>
-            <svg aria-hidden="true" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M4.5 12.75l6 6 9-13.5" stroke-linejoin="round" stroke-linecap="round"></path>
-            </svg>
-          </span>
-          <p>
-            Branding
-          </p>
-        </li>
-        <li class="list">
-          <span>
-            <svg aria-hidden="true" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M4.5 12.75l6 6 9-13.5" stroke-linejoin="round" stroke-linecap="round"></path>
-            </svg>
-          </span>
-          <p>
-   Video Production
-          </p>
-        </li>
-        <li class="list">
-          <span>
-            <svg aria-hidden="true" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M4.5 12.75l6 6 9-13.5" stroke-linejoin="round" stroke-linecap="round"></path>
-            </svg>
-          </span>
-          <p>
-  Social Media
-          </p>
-        </li>
-      </ul>
-    </div>
-    <div class="button-container">
-      <a href="divisions.html">
-      <button type="button">
-        More Info
-      </button>
-      </a>
-    </div>
-  </div>
-  <div class="pack-container">
-    <div class="header">
-      <p class="title">
-        Future Divisions
-      </p>
-    </div>
-    <div>
-      <ul class="lists">
-        <li class="list">
-          <span>
-            <svg aria-hidden="true" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M4.5 12.75l6 6 9-13.5" stroke-linejoin="round" stroke-linecap="round"></path>
-            </svg>
-          </span>
-          <p>
-          Coming Soon
-          </p>
-        </li>
-        <li class="list">
-          <span>
-            <svg aria-hidden="true" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M4.5 12.75l6 6 9-13.5" stroke-linejoin="round" stroke-linecap="round"></path>
-            </svg>
-          </span>
-          <p>
-            Coming Soon
-          </p>
-        </li>
-        <li class="list">
-          <span>
-            <svg aria-hidden="true" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M4.5 12.75l6 6 9-13.5" stroke-linejoin="round" stroke-linecap="round"></path>
-            </svg>
-          </span>
-          <p>
-Coming Soon
-          </p>
-        </li>
-        <li class="list">
-          <span>
-            <svg aria-hidden="true" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M4.5 12.75l6 6 9-13.5" stroke-linejoin="round" stroke-linecap="round"></path>
-            </svg>
-          </span>
-          <p>
-  Coming Soon
-          </p>
-        </li>
-      </ul>
-    </div>
-    <div class="button-container">
-      <button type="button">
-        Coming Soon
-      </button>
-    </div>
-  </div>
-  </div>
-  
-  <script>
-  window.addEventListener('DOMContentLoaded', () => {
-    const cards = document.querySelectorAll('.pack-container');
-    cards.forEach((card, index) => {
-      setTimeout(() => {
-        card.classList.add('show');
-      }, index * 200); 
-    });
-  });
-  
-</script>
-<h3 class="typing-title">NEXO Stats</h3>
-<div class="counters">
-  <div class="counter">
-    <span data-target="3144">0</span>
-    <p>Members</p>
-  </div>
-  <div class="counter">
-    <span data-target="8">0</span>
-    <p>Tournaments</p>
-  </div>
-  <div class="counter">
-    <span data-target="10">0</span>
-    <p>Teams</p>
-  </div>
-</div>
-<script>
-  const counters = document.querySelectorAll('.counter span');
-
-  const options = {
-    root: null,
-    threshold: 0.5
-  };
-
-  const startCounter = (entry) => {
-    if(entry.isIntersecting){
-      const span = entry.target;
-      const target = +span.getAttribute('data-target');
-      let count = 0;
-      const increment = Math.ceil(target / 200); // viteza animatiei
-
-      const updateCount = () => {
-        count += increment;
-        if(count > target) count = target;
-        span.textContent = count;
-        if(count < target) requestAnimationFrame(updateCount);
-      };
-
-      updateCount();
-      observer.unobserve(span);
-    }
-  };
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(startCounter);
-  }, options);
-
-  counters.forEach(counter => {
-    observer.observe(counter);
-  });
-</script>
-<h3 class="typing-title">NEXO Socials</h3>
-<h4>Help NEXO Group by Joining our Socials</h4>
-<div class="socials">
-  <a href="https://discord.gg/GnzxwbP66">
-<img src="https://static.wixstatic.com/media/10c80d_a9e8fb939735489bbdc29eb3b04934b0~mv2.png">
-</a>
-<a href="https://www.instagram.com/nex_oesports?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">
-<img src="https://static.wixstatic.com/media/10c80d_4ceb22a5fda24118abd7603d537ed480~mv2.png">
-</a>
-<a href="https://x.com/greg_esports?t=WgezL2ohru8kL-PVRLrZBQ&s=09">
-<img src="https://static.wixstatic.com/media/10c80d_bac6921ada5e431189782da1966d9824~mv2.png">
-</a>
-</div>
-
-
+    <h1>NEXO Divisions</h1>
+    <br><br><br><br>
+     <h3>Nexo Creative</h3>
+     <br><br><br><br>
+    <h4>Nexo Creative is our internal creative education and staff development program.
+      <br>
+It’s made to help passionate creatives learn skills, build experience, and earn recognition.
+<br>
+ What makes it special:
+ <br>
+- Real industry-based modules
+<br>
+- Weekly calls with Nexo Coaches
+<br>
+- Pathway to paid staff positions
+<br>
+- Certification upon completion</h4>
+<br><br><br><br><br><br><br><br>
+<h3>Nexo eSports</h3>
+<br><br><br><br>
+<h4>NEXO eSports is the division focused on organizing and managing competitive tournaments. We create well-structured, fair, and engaging competitions for players and teams, offering a professional environment where skill, teamwork, and fair play come first.</h4>
 <footer>
   &copy; 2025 NEXO Group. All rights reserved.
 </footer>
