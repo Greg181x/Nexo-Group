@@ -39,21 +39,53 @@
                 transform: translateY(0);
             }
  }
-    .navlinks{
+ .navlinks{
    font-family: "Zen Dots", sans-serif;
    display: flex;
    gap: 50px;
    justify-content: center;
+       opacity: 0;
+    animation: fadeInUp 0.8s ease-out forwards;
+    animation-delay: 0.1s;
  }
+  @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
  .navlinks a{
        color: white;
    text-decoration: none;
+   position: relative;
+	 display: inline-block;
+	  width: auto;
+	 text-align: center;
    gap: 30px;
    transition: all 0.4s ease;
  }
  .navlinks a:hover{
     color: #2E4F7A;
  }
+ .navlinks a::after {
+  content: "";
+  position: absolute;
+  left: 50%;            /* porneste din centru */
+  bottom: -4px;         /* distanta fata de text */
+  width: 0;             /* initial invizibil */
+  height: 4px;          /* grosimea liniei */
+  background-color: #2E4F7A;
+   transform: translateX(-50%); /* centrăm linia */
+  transition: width 0.4s ease, left 0.4s ease;
+  transform: translateX(-50%); /* centrăm linia */
+}
+.navlinks a:hover::after {
+  width: 100%; /* linia se intinde complet */
+}
  /* From Uiverse.io by SouravBandyopadhyay */ 
 .notification {
     margin-top: 100px;
@@ -323,6 +355,7 @@ footer{
     flex-direction: column;
     gap: 15px;
     margin-top: 20px;
+	  align-items: center;
   }
 
   .navlinks a {
@@ -396,26 +429,28 @@ footer{
 }
 @media (max-width: 768px) {
 
-  .hamburger {
+    .hamburger {
     display: flex;
-    background-color: black;
   }
 
-  .navlinks {
-    position: absolute;
-    top: 70px;
-    left: 0;
-    width: 100%;
-    background: rgba(0,0,0,0.95);
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    padding: 20px 0;
-    display: none;
+   .navlinks {
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: rgba(0,0,0,0.95);
+        padding: 20px 0;
+        gap: 20px;
+
+        display: none; /* ascuns inițial */
+        z-index: 100;
   }
 
-  /* când checkbox e bifat */
   #menu-toggle:checked ~ .navlinks {
+ display: flex; /* afișează când checkbox-ul e bifat */
+  }
+	  .navlinks.active {
     display: flex;
   }
 }
@@ -934,6 +969,7 @@ window.addEventListener('scroll', () => {
 </footer>
 </body>
 </html>
+
 
 
 
