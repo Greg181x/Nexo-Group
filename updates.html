@@ -10,8 +10,7 @@
 </head>
 <style>
     body{
-background-image: url("background.png");
-           background-repeat: no-repeat;
+       background-image: url("background.png");
     background-size: cover;
     background-position: center;
     min-height: 100vh;
@@ -41,18 +40,31 @@ background-image: url("background.png");
    display: flex;
    gap: 50px;
    justify-content: center;
+       opacity: 0;
+    animation: fadeInUp 0.8s ease-out forwards;
+    animation-delay: 0.1s;
  }
+  @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
  .navlinks a{
        color: white;
    text-decoration: none;
-	 position: relative;
+   position: relative;
    gap: 30px;
    transition: all 0.4s ease;
  }
  .navlinks a:hover{
     color: #2E4F7A;
  }
-	  .navlinks a::after {
+  .navlinks a::after {
   content: "";
   position: absolute;
   left: 50%;            /* porneste din centru */
@@ -358,9 +370,28 @@ footer{
     background: white;
   }
 }
-
+#progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 5px;
+  background: linear-gradient(90deg, #2E4F7A, #32a6ff);
+  width: 0%;
+  z-index: 10000;
+  transition: width 0.25s ease-out;
+}
 </style>
 <body>
+    <!-- Plasează chiar după <body> -->
+<div id="progress-bar"></div>
+<script>
+window.addEventListener('scroll', () => {
+  const scrollTop = document.documentElement.scrollTop;
+  const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const scrollPercent = (scrollTop / scrollHeight) * 100;
+  document.getElementById('progress-bar').style.width = scrollPercent + '%';
+});
+</script>
 <nav class="navbar">
   <div class="logo">NEXO</div>
 
@@ -423,8 +454,4 @@ footer{
 </footer>
 
 </body>
-
 </html>
-
-
-
