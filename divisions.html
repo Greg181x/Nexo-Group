@@ -37,7 +37,7 @@
             }
  }
  .navlinks{
-   font-family: "Zen Dots", sans-serif;
+      font-family: "Zen Dots", sans-serif;
    display: flex;
    gap: 50px;
    justify-content: center;
@@ -59,13 +59,16 @@
        color: white;
    text-decoration: none;
    position: relative;
+	 display: inline-block;
+	  width: auto;
+	 text-align: center;
    gap: 30px;
    transition: all 0.4s ease;
  }
  .navlinks a:hover{
     color: #2E4F7A;
  }
-  .navlinks a::after {
+ .navlinks a::after {
   content: "";
   position: absolute;
   left: 50%;            /* porneste din centru */
@@ -157,9 +160,10 @@ h4{
     }
 
     .navlinks {
-        flex-direction: column;
-        gap: 15px;
-        margin-top: 20px;
+     flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+	  align-items: center;
     }
 
     .navlinks a {
@@ -223,32 +227,27 @@ h4{
 
   .hamburger {
     display: flex;
-    background-color: black;
   }
 
    .navlinks {
-    position: absolute;
-    top: 70px;
-    left: 0;
-    width: 100%;
-    background: rgba(0,0,0,0.95);
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: rgba(0,0,0,0.95);
+        padding: 20px 0;
+        gap: 20px;
 
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    padding: 20px 0;
-
-    opacity: 0;
-    transform: translateY(-10px);
-    pointer-events: none;
-
-    transition: opacity 0.3s ease, transform 0.3s ease;
+        display: none; /* ascuns inițial */
+        z-index: 100;
   }
 
   #menu-toggle:checked ~ .navlinks {
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events: auto;
+ display: flex; /* afișează când checkbox-ul e bifat */
+  }
+	  .navlinks.active {
+    display: flex;
   }
 }
 #menu-toggle:checked + .hamburger span:nth-child(1) {
@@ -355,3 +354,4 @@ It’s made to help passionate creatives learn skills, build experience, and ear
 </footer>
 </body>
 </html>
+
