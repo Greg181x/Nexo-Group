@@ -381,6 +381,16 @@ footer{
   z-index: 10000;
   transition: width 0.25s ease-out;
 }
+	@media(max-width:768px){
+  #menu-toggle:not(:checked) ~ .navlinks{
+    display:none;
+  }
+
+  #menu-toggle:checked ~ .navlinks{
+    display:flex;
+  }
+}
+
 </style>
 <body>
     <!-- Plasează chiar după <body> -->
@@ -456,6 +466,7 @@ window.addEventListener('scroll', () => {
 
 </body>
 </html>
+
 
 
 
