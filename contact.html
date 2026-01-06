@@ -9,16 +9,12 @@
 <link href="https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap" rel="stylesheet">
 </head>
 <style>
-       body{
-background-image: url("background.png");
-           background-repeat: no-repeat;
+    body{
+        background-image: url("pic/background.png");
     background-size: cover;
     background-position: center;
-           margin: 0;
-    }
-    body,html{
-        min-height: 100%;
-        margin: 0;
+
+    min-height: 100vh;
     }
     h1{
         margin-top: 100px;
@@ -29,7 +25,6 @@ background-image: url("background.png");
     opacity: 0;
     animation: fadeInUp 0.8s ease-out forwards;
     animation-delay: 0.3s;
-         margin-top:120px;
 }
  @keyframes fadeInUp {
             from {
@@ -46,18 +41,28 @@ background-image: url("background.png");
    display: flex;
    gap: 50px;
    justify-content: center;
+       opacity: 0;
+    animation: fadeInUp 0.8s ease-out forwards;
+    animation-delay: 0.1s;
  }
+  @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
  .navlinks a{
        color: white;
    text-decoration: none;
-     position: relative;
+   position: relative;
    gap: 30px;
    transition: all 0.4s ease;
  }
- .navlinks a:hover{
-    color: #2E4F7A;
- }
-      .navlinks a::after {
+  .navlinks a::after {
   content: "";
   position: absolute;
   left: 50%;            /* porneste din centru */
@@ -72,6 +77,9 @@ background-image: url("background.png");
 .navlinks a:hover::after {
   width: 100%; /* linia se intinde complet */
 }
+ .navlinks a:hover{
+    color: #2E4F7A;
+ }
  /* From Uiverse.io by Smit-Prajapati */ 
 .orange {
   color: #ff7a01;
@@ -90,8 +98,6 @@ background-image: url("background.png");
     animation: fadeInUp 0.8s ease-out forwards;
     animation-delay: 0.7s;
     font-family: "Zen Dots", sans-serif;
-     margin-top:60px;
-   margin-bottom:60px;
 }
  @keyframes fadeInUp {
             from {
@@ -204,7 +210,7 @@ footer{
   color: white;
   font-family: "Zen Dots", sans-serif;
   text-align: center;
-  margin-top: 50px;
+  margin-top: 350px;
 }
 /* =========================
    RESPONSIVE DESIGN
@@ -388,8 +394,30 @@ footer{
     background: white;
   }
 }
+#progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 5px;
+  background: linear-gradient(90deg, #2E4F7A, #32a6ff);
+  width: 0%;
+  z-index: 10000;
+  transition: width 0.25s ease-out;
+}
+
 </style>
 <body>
+    <!-- Plasează chiar după <body> -->
+<div id="progress-bar"></div>
+<script>
+window.addEventListener('scroll', () => {
+  const scrollTop = document.documentElement.scrollTop;
+  const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const scrollPercent = (scrollTop / scrollHeight) * 100;
+  document.getElementById('progress-bar').style.width = scrollPercent + '%';
+});
+</script>
+<div id="custom-cursor"></div>
 <nav class="navbar">
   <div class="logo">NEXO</div>
 
@@ -413,8 +441,9 @@ footer{
 </nav>
     <h1>Get in Touch with NEXO</h1>
     <!-- From Uiverse.io by Smit-Prajapati --> 
+<br><br><br><br><br><br><br>
 <div class="form-container">
-  <form class="form" action="https://formsubmit.co/business.nexo.official@gmail.com" method="POST">
+  <form action="https://formsubmit.co/business.nexo.official@gmail.com" method="POST">
 
     <span class="heading">Get in touch</span>
 
@@ -436,16 +465,3 @@ footer{
 </footer>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
