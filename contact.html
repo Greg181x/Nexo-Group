@@ -387,6 +387,29 @@ footer{
   z-index: 10000;
   transition: width 0.25s ease-out;
 }
+@media (max-width:768px){
+
+  .navlinks{
+    flex-direction:column;
+    position:absolute;
+    top:70px;
+    left:0;
+    width:100%;
+    background:black;
+    gap:20px;
+    padding:20px 0;
+    display:none;
+  }
+
+  #menu-toggle:checked ~ .navlinks{
+    display:flex;
+  }
+
+  .hamburger{
+    display:flex;
+  }
+
+}
 
 </style>
 <body>
@@ -448,6 +471,7 @@ window.addEventListener('scroll', () => {
 </footer>
 </body>
 </html>
+
 
 
 
