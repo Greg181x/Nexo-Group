@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NEXO Group</title>
+    <title>Document</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap" rel="stylesheet">
 <style>
     body{
-background-image: url("background.png");
+       background-image: url("background.png");
            background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -22,7 +22,7 @@ background-image: url("background.png");
     text-align: center;
     opacity: 0;
     animation: fadeInUp 0.8s ease-out forwards;
-    animation-delay: 0.3s;
+    animation-delay: 0.4s;
 }
  @keyframes fadeInUp {
             from {
@@ -39,18 +39,31 @@ background-image: url("background.png");
    display: flex;
    gap: 50px;
    justify-content: center;
+       opacity: 0;
+    animation: fadeInUp 0.8s ease-out forwards;
+    animation-delay: 0.1s;
  }
+  @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
  .navlinks a{
        color: white;
    text-decoration: none;
-     position: relative;
+   position: relative;
    gap: 30px;
    transition: all 0.4s ease;
  }
  .navlinks a:hover{
     color: #2E4F7A;
  }
-      .navlinks a::after {
+ .navlinks a::after {
   content: "";
   position: absolute;
   left: 50%;            /* porneste din centru */
@@ -345,14 +358,13 @@ footer{
 @media (max-width: 768px) {
   .typing-title {
     font-size: 1.5rem;
-    width: 100%;           /* să ocupe tot ecranul */
-    max-width: 90%;        /* puțin padding lateral */
+    width: 18ch;
     animation: typing-mobile 2s steps(18, end) forwards;
   }
 
-   @keyframes typing-mobile {
+  @keyframes typing-mobile {
     from { width: 0; }
-    to { width: 100%; }    /* lățimea finală nu depășește ecranul */
+    to { width: 18ch; }
   }
 }
 #menu-toggle {
@@ -432,11 +444,26 @@ footer{
     background: white;
   }
 }
-@media (max-width: 768px){
-  body{
-     background-size: cover;
-     background-position: center,
-  }
+.counters {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  margin-top: 80px;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.counter span {
+  font-size: 3rem;
+  font-family: "Zen Dots", sans-serif;
+  color: white;
+  display: block;
+}
+
+.counter p {
+  font-family: "Zen Dots", sans-serif;
+  color: white;
+  margin-top: 10px;
 }
 
  </style>
@@ -644,6 +671,7 @@ Coming Soon
     </div>
   </div>
   </div>
+  
   <script>
   window.addEventListener('DOMContentLoaded', () => {
     const cards = document.querySelectorAll('.pack-container');
@@ -652,6 +680,57 @@ Coming Soon
         card.classList.add('show');
       }, index * 200); 
     });
+  });
+  
+</script>
+<h3 class="typing-title">NEXO Stats</h3>
+<div class="counters">
+  <div class="counter">
+    <span data-target="3144">0</span>
+    <p>Members</p>
+  </div>
+  <div class="counter">
+    <span data-target="8">0</span>
+    <p>Tournaments</p>
+  </div>
+  <div class="counter">
+    <span data-target="10">0</span>
+    <p>Teams</p>
+  </div>
+</div>
+<script>
+  const counters = document.querySelectorAll('.counter span');
+
+  const options = {
+    root: null,
+    threshold: 0.5
+  };
+
+  const startCounter = (entry) => {
+    if(entry.isIntersecting){
+      const span = entry.target;
+      const target = +span.getAttribute('data-target');
+      let count = 0;
+      const increment = Math.ceil(target / 200); // viteza animatiei
+
+      const updateCount = () => {
+        count += increment;
+        if(count > target) count = target;
+        span.textContent = count;
+        if(count < target) requestAnimationFrame(updateCount);
+      };
+
+      updateCount();
+      observer.unobserve(span);
+    }
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(startCounter);
+  }, options);
+
+  counters.forEach(counter => {
+    observer.observe(counter);
   });
 </script>
 <h3 class="typing-title">NEXO Socials</h3>
@@ -667,18 +746,10 @@ Coming Soon
 <img src="https://static.wixstatic.com/media/10c80d_bac6921ada5e431189782da1966d9824~mv2.png">
 </a>
 </div>
+
+
 <footer>
   &copy; 2025 NEXO Group. All rights reserved.
 </footer>
 </body>
-
 </html>
-
-
-
-
-
-
-
-
-
