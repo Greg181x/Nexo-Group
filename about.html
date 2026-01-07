@@ -139,26 +139,23 @@ h4{
                 transform: translateY(0);
             }
  }
- .about h3 {
-    margin: 100px auto 0;
+.about h3 {
+    margin: 60px auto 20px;
     color: white;
     font-family: "Zen Dots", sans-serif;
     font-size: 2rem;
     text-align: center;
-      display: inline-block;
-  white-space: nowrap;
-  overflow: hidden;
-  max-width: 0;
+    display: block; /* Schimbat din inline-block pentru centrare mai ușoară */
     white-space: nowrap;
     overflow: hidden;
-    animation: typing 2s steps(22, end) forwards;
+    width: 0;
+    animation: typingAbout 2s steps(20, end) forwards;
     animation-delay: 1.3s;
 }
 
-
-@keyframes typing {
+@keyframes typingAbout {
     from { width: 0; }
-    to { width: 24ch; }
+    to { width: 10ch; } /* Ajustează "10ch" în funcție de lungimea textului "About Us" */
 }
 .about p{
     margin-top: 100px;
@@ -429,35 +426,46 @@ h4{
 }
 @media (max-width: 768px) {
 
-  .hamburger {
-    display: flex;
-    background-color: black;
-  }
+.hamburger {
+        display: flex !important; /* Forțăm afișarea */
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        z-index: 1002;
+    }
 
-   .navlinks {
-    position: absolute;
-    top: 70px;
-    left: 0;
-    width: 100%;
-    background: rgba(0,0,0,0.95);
+    .navlinks {
+        display: flex;
+        flex-direction: column;
+        position: fixed; /* Schimbat în fixed pentru a acoperi ecranul */
+        top: 0;
+        right: -100%; /* Ascuns în dreapta */
+        width: 70%;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.95);
+        transition: 0.4s right ease;
+        padding-top: 80px;
+        opacity: 1 !important; /* Eliminăm opacitatea 0 care încurca */
+        pointer-events: auto;
+    }
 
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    padding: 20px 0;
+    /* Când checkbox-ul e bifat, aducem meniul pe ecran */
+    #menu-toggle:checked ~ .navlinks {
+        right: 0;
+    }
 
-    opacity: 0;
-    transform: translateY(-10px);
-    pointer-events: none;
+    .about h3 {
+        font-size: 1.5rem;
+        margin: 40px auto;
+        width: 0;
+        animation: typingAboutMobile 2s steps(10, end) forwards;
+    }
+}
 
-    transition: opacity 0.3s ease, transform 0.3s ease;
-  }
-
-  #menu-toggle:checked ~ .navlinks {
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events: auto;
-  }
+@keyframes typingAboutMobile {
+    from { width: 0; }
+    to { width: 10ch; }
+}
 }
 #menu-toggle:checked + .hamburger span:nth-child(1) {
   transform: rotate(45deg) translate(5px, 5px);
@@ -680,5 +688,6 @@ Rooted in Germany and shaped by a global mindset, Nexo Esports aims to become a 
 </footer>
 </body>
 </html>
+
 
 
