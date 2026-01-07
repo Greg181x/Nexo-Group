@@ -44,6 +44,16 @@
     animation: fadeInUp 0.8s ease-out forwards;
     animation-delay: 0.1s;
  }
+  @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
  .navlinks a{
        color: white;
    text-decoration: none;
@@ -64,28 +74,51 @@
   background-color: #2E4F7A;
    transform: translateX(-50%); /* centrăm linia */
   transition: width 0.4s ease, left 0.4s ease;
+  transform: translateX(-50%); /* centrăm linia */
 }
 .navlinks a:hover::after {
   width: 100%; /* linia se intinde complet */
 }
+ h1{
+        margin-top: 100px;
+        color: white;
+    font-family: "Zen Dots", sans-serif;
+    font-size: 3rem;
+    text-align: center;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out forwards;
+    animation-delay: 0.3s;
+}
+ @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+ }
  h3 {
     margin: 100px auto 0;
     color: white;
     font-family: "Zen Dots", sans-serif;
     font-size: 2rem;
     text-align: center;
+
     white-space: nowrap;
     overflow: hidden;
+
     width: 0;
     animation: typing 2s steps(22, end) forwards;
     animation-delay: 0.9s;
 }
 
+
 @keyframes typing {
     from { width: 0; }
     to { width: 24ch; }
 }
-
 h4{
         margin-top: 100px;
         color: white;
@@ -96,17 +129,35 @@ h4{
     animation: fadeInUp 0.8s ease-out forwards;
     animation-delay: 0.9s;
 }
+ @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+ }
  .about h3 {
     margin: 100px auto 0;
     color: white;
     font-family: "Zen Dots", sans-serif;
     font-size: 2rem;
     text-align: center;
+
     white-space: nowrap;
     overflow: hidden;
+
     width: 0;
     animation: typing 2s steps(22, end) forwards;
     animation-delay: 1.3s;
+}
+
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 24ch; }
 }
 .about p{
     margin-top: 100px;
@@ -117,13 +168,325 @@ h4{
     animation: fadeInUp 0.8s ease-out forwards;
     animation-delay: 1.6s;
 }
+ @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+ }
  footer{
   color: white;
   font-family: "Zen Dots", sans-serif;
   text-align: center;
   margin-top: 250px;
 }
+.card-client {
+  background: #000000;
+  width: 13rem;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border:2px solid #ffffff;
+  box-shadow: 0 6px 10px rgba(207, 212, 222, 1);
+  border-radius: 10px;
+  text-align: center;
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+  transition: all 0.3s ease;
+}
 
+.card-client:hover {
+  transform: translateY(-10px);
+}
+
+.user-picture {
+  overflow: hidden;
+  object-fit: cover;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 999px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+
+.user-picture svg {
+  width: 2.5rem;
+  fill: currentColor;
+}
+
+.name-client {
+  margin: 0;
+  margin-top: 20px;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.name-client span {
+  display: block;
+  font-weight: 200;
+  font-size: 16px;
+}
+
+.social-media:before {
+  content: " ";
+  display: block;
+  width: 100%;
+  height: 2px;
+  margin: 20px 0;
+  background: #7cdacc;
+}
+
+.social-media a {
+  position: relative;
+  margin-right: 15px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.social-media a:last-child {
+  margin-right: 0;
+}
+
+.social-media a svg {
+  width: 1.1rem;
+  fill: currentColor;
+}
+
+/*-- Tooltip Social Media --*/
+.tooltip-social {
+  background: #262626;
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  padding: 0.5rem 0.4rem;
+  border-radius: 5px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, -90%);
+  transition: all 0.2s ease;
+  z-index: 1;
+}
+
+.tooltip-social:after {
+  content: " ";
+  position: absolute;
+  bottom: 1px;
+  left: 50%;
+  border: solid;
+  border-width: 10px 10px 0 10px;
+  border-color: transparent;
+  transform: translate(-50%, 100%);
+}
+
+.social-media a .tooltip-social:after {
+  border-top-color: #262626;
+}
+
+.social-media a:hover .tooltip-social {
+  opacity: 1;
+  transform: translate(-50%, -130%);
+}
+.staff{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 60px;
+}
+.staff-wrapper{
+    display: flex;
+    justify-content: center;
+}
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
+
+/* TABLET */
+@media (max-width: 1024px) {
+  h1 {
+    font-size: 2.4rem;
+    margin-top: 80px;
+  }
+
+  h3 {
+    font-size: 1.7rem;
+  }
+.about h3{
+  font-size: 1.7rem;
+}
+  .navlinks {
+    gap: 30px;
+    flex-wrap: wrap;
+  }
+
+  footer {
+    margin-top: 180px;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  body {
+    background-position: top;
+  }
+
+  .navlinks {
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+  }
+
+  .navlinks a {
+    font-size: 0.9rem;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+    margin-top: 60px;
+    padding: 0 15px;
+  }
+
+  h3 {
+    font-size: 1.7rem;
+    animation: typing 2s steps(16, end) forwards;
+  }
+
+  @keyframes typing {
+    from { width: 0; }
+    to { width: 16ch; }
+  }
+
+  h4,
+  .about p {
+    font-size: 0.85rem;
+  }
+
+  .card-client {
+    width: 90%;
+    max-width: 260px;
+  }
+
+  .name-client {
+    font-size: 16px;
+  }
+
+  .name-client span {
+    font-size: 14px;
+  }
+
+  footer {
+    margin-top: 120px;
+    font-size: 0.75rem;
+  }
+}
+
+/* SMALL MOBILE */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  h3 {
+    font-size: 1.1rem;
+  }
+
+  h4,
+  .about p {
+    font-size: 0.8rem;
+  }
+
+  footer {
+    margin-top: 100px;
+  }
+}
+#menu-toggle {
+  display: none;
+}
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: white;
+  transition: 0.3s;
+}
+@media (max-width: 768px) {
+
+  .hamburger {
+    display: flex;
+    background-color: black;
+  }
+
+   .navlinks {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background: rgba(0,0,0,0.95);
+
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 0;
+
+    opacity: 0;
+    transform: translateY(-10px);
+    pointer-events: none;
+
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  #menu-toggle:checked ~ .navlinks {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+}
+#menu-toggle:checked + .hamburger span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+#menu-toggle:checked + .hamburger span:nth-child(2) {
+  opacity: 0;
+}
+
+#menu-toggle:checked + .hamburger span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+.navbar {
+  position: relative;
+  z-index: 1000;
+}
+@media (max-width: 768px) {
+
+  .hamburger {
+    display: flex;
+    background-color: black;
+    padding: 12px;              
+    border-radius: 10px;
+    z-index: 1001;
+  }
+
+  .hamburger span {
+    background: white;
+  }
+}
 .card-client {
   background: linear-gradient(145deg, #000000, #111111);
   width: 13rem;
@@ -133,10 +496,37 @@ h4{
   border-radius: 15px;
   text-align: center;
   color: #fff;
-  font-family: "Zen Dots", sans-serif;
+  font-family: "Poppins", sans-serif;
   transition: all 0.4s ease;
   position: relative;
   overflow: hidden;
+}
+
+.card-client::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(120deg, #2E4F7A, #7cdacc, #2E4F7A, #7cdacc);
+  background-size: 400% 400%;
+  transition: all 0.5s ease;
+  filter: blur(20px);
+  opacity: 0;
+  z-index: 0;
+  transform: rotate(0deg);
+}
+
+.card-client:hover::before {
+  opacity: 0.4;
+  animation: gradientShift 3s linear infinite;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 .card-client:hover {
@@ -145,50 +535,46 @@ h4{
   border-color: #2E4F7A;
 }
 
-.staff{ display: flex; flex-wrap: wrap; gap: 40px; align-items: center; justify-content: center; margin-top: 60px; }
-.staff-wrapper{ display: flex; justify-content: center; }
-
-/* -- Navigation logic (copiat de la Home) -- */
-#menu-toggle { display: none; }
-.hamburger { display: none; flex-direction: column; cursor: pointer; gap: 5px; }
-.hamburger span { width: 25px; height: 3px; background: white; transition: 0.3s; }
-
-@media (max-width: 768px) {
-  .hamburger { display: flex; background-color: black; padding: 12px; border-radius: 10px; z-index: 1001; position: absolute; top: 20px; right: 20px; }
-
-   .navlinks {
-    position: absolute;
-    top: 70px;
-    left: 0;
-    width: 100%;
-    background: rgba(0,0,0,0.95);
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    padding: 20px 0;
-    animation: none; 
-    display: none;
-    z-index: 100;
-  }
-
-  #menu-toggle:checked ~ .navlinks {
-    display: flex;
-  }
+.card-client * {
+  position: relative;
+  z-index: 1;
 }
 
-#menu-toggle:checked + .hamburger span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
-#menu-toggle:checked + .hamburger span:nth-child(2) { opacity: 0; }
-#menu-toggle:checked + .hamburger span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+.user-picture svg {
+  transition: transform 0.4s ease;
+}
 
-#progress-bar { position: fixed; top: 0; left: 0; height: 5px; background: linear-gradient(90deg, #2E4F7A, #32a6ff); width: 0%; z-index: 10000; }
+.card-client:hover .user-picture svg {
+  transform: rotate(-10deg) scale(1.2);
+}
+#progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 5px;
+  background: linear-gradient(90deg, #2E4F7A, #32a6ff);
+  width: 0%;
+  z-index: 10000;
+  transition: width 0.25s ease-out;
+}
 </style>
 <body>
-
+    <!-- Plasează chiar după <body> -->
 <div id="progress-bar"></div>
-
+<script>
+window.addEventListener('scroll', () => {
+  const scrollTop = document.documentElement.scrollTop;
+  const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const scrollPercent = (scrollTop / scrollHeight) * 100;
+  document.getElementById('progress-bar').style.width = scrollPercent + '%';
+});
+</script>
 <nav class="navbar">
-  <input type="checkbox" id="menu-toggle">
+  <div class="logo">NEXO</div>
 
+    <input type="checkbox" id="menu-toggle">
+
+  <!-- hamburger -->
   <label for="menu-toggle" class="hamburger">
     <span></span>
     <span></span>
@@ -204,44 +590,11 @@ h4{
     <a href="careers.html">CAREERS</a>
   </div>
 </nav>
-
-<h1>About NEXO Group</h1>
-<h3 id="typing-text"></h3>
-
-<h4>Nexo Group is a future-focused initiative designed to build, connect, and scale talent, teams, and ideas across multiple industries. <br>Current pillars include Esports and Creative, with room for future divisions.</h4>
-
-<div class="about">
-<h3>About Us</h3>
-<p>Nexo Esports is a German-based esports organization founded in 2025 as part of the broader Nexo Group <br>ecosystem. Built with a forward-thinking vision, Nexo Esports focuses on developing competitive talent, <br>fostering strong teams, and creating innovative opportunities within the esports industry.
-<br><br>
-As a core pillar of Nexo Group, the organization is driven by a mission to build, connect, and scale talent, <br>teams, and ideas across multiple industries. Alongside Esports, Nexo Group currently operates within the <br>Creative sector, with the flexibility to expand into additional divisions in the future.
-<br><br>
-Rooted in Germany and shaped by a global mindset, Nexo Esports aims to become a sustainable and <br>influential presence in modern esports by combining competition, creativity, and long-term growth.</p>
-</div>
-
-<h2 style="color: white; font-family: 'Zen Dots'; text-align: center; margin-top: 150px;">NEXO Staff</h2>
-
-<div class="staff-wrapper">
-    <div class="staff">
-        <div class="card-client">
-            <p class="name-client"> KINGBOSSALI22 <span>Owner</span></p>
-        </div>
-        <div class="card-client">
-            <p class="name-client"> Osiris <span>Co Owner</span></p>
-        </div>
-        <div class="card-client">
-            <p class="name-client"> Lamine <span>Co Owner</span></p>
-        </div>
-    </div>
-</div>
-
-<footer>
-  &copy; 2025 NEXO Group. All rights reserved.
-</footer>
-
+    <h1>About NEXO Group</h1>
+  <h3 id="typing-text"></h3>
 <script>
 const texts = ["Our Vision", "Our Mission", "Our Future"];
-let textIndex = 0;
+let index = 0;
 const el = document.getElementById('typing-text');
 
 function typeWriter(text, i = 0) {
@@ -250,17 +603,79 @@ function typeWriter(text, i = 0) {
     setTimeout(() => typeWriter(text, i+1), 100);
   } else {
     setTimeout(() => {
-      textIndex = (textIndex + 1) % texts.length;
-      typeWriter(texts[textIndex]);
+      el.innerHTML = '';
+      index = (index + 1) % texts.length;
+      typeWriter(texts[index]);
     }, 2000);
   }
 }
-typeWriter(texts[textIndex]);
 
-window.addEventListener('scroll', () => {
-  const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
-  document.getElementById('progress-bar').style.width = scrollPercent + '%';
-});
+typeWriter(texts[index]);
 </script>
+
+    <h4>Nexo Group is a future-focused initiative designed to build, connect, and scale talent, teams, and ideas
+across multiple industries. <br>Current pillars include Esports and Creative, with room for future divisions.</h4>
+<div class="about">
+<h3>About Us</h3>
+<p>Nexo Esports is a German-based esports organization founded in 2025 as part of the broader Nexo Group <br>ecosystem. Built with a forward-thinking vision, Nexo Esports focuses on developing competitive talent, <br>fostering strong teams, and creating innovative opportunities within the esports industry.
+<br><br>
+As a core pillar of Nexo Group, the organization is driven by a mission to build, connect, and scale talent, <br>teams, and ideas across multiple industries. Alongside Esports, Nexo Group currently operates within the <br>Creative sector, with the flexibility to expand into additional divisions in the future.
+<br><br>
+Rooted in Germany and shaped by a global mindset, Nexo Esports aims to become a sustainable and <br>influential presence in modern esports by combining competition, creativity, and long-term growth.</p>
+</div>
+<br><br><br><br><br><br>
+<h3>NEXO Staff</h3>
+<div class="staff-wrapper">
+<div class="staff">
+<div class="card-client">
+    <div class="user-picture">
+        <svg viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">
+            <path d="M224 256c70.7 0 128-57.31 128-128s-57.3-128-128-128C153.3 0 96 57.31 96 128S153.3 256 224 256zM274.7 304H173.3C77.61 304 0 381.6 0 477.3c0 19.14 15.52 34.67 34.66 34.67h378.7C432.5 512 448 496.5 448 477.3C448 381.6 370.4 304 274.7 304z"></path>
+        </svg>
+    </div>
+    <p class="name-client"> KINGBOSSALI22
+        <span>Owner
+        </span>
+    </p>
+    
+    </div>
+  <div class="card-client">
+        <div class="user-picture">
+        <svg viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">
+            <path d="M224 256c70.7 0 128-57.31 128-128s-57.3-128-128-128C153.3 0 96 57.31 96 128S153.3 256 224 256zM274.7 304H173.3C77.61 304 0 381.6 0 477.3c0 19.14 15.52 34.67 34.66 34.67h378.7C432.5 512 448 496.5 448 477.3C448 381.6 370.4 304 274.7 304z"></path>
+        </svg>
+    </div>
+    <p class="name-client">Osiris
+        <span>Co Owner
+        </span>
+    </p> 
+    </div>
+    <div class="card-client">
+           <div class="user-picture">
+        <svg viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">
+            <path d="M224 256c70.7 0 128-57.31 128-128s-57.3-128-128-128C153.3 0 96 57.31 96 128S153.3 256 224 256zM274.7 304H173.3C77.61 304 0 381.6 0 477.3c0 19.14 15.52 34.67 34.66 34.67h378.7C432.5 512 448 496.5 448 477.3C448 381.6 370.4 304 274.7 304z"></path>
+        </svg>
+    </div>
+    <p class="name-client">Lamine
+        <span>Co Owner
+        </span>
+    </p>
+    </div>
+    <div class="card-client">
+           <div class="user-picture">
+        <svg viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">
+            <path d="M224 256c70.7 0 128-57.31 128-128s-57.3-128-128-128C153.3 0 96 57.31 96 128S153.3 256 224 256zM274.7 304H173.3C77.61 304 0 381.6 0 477.3c0 19.14 15.52 34.67 34.66 34.67h378.7C432.5 512 448 496.5 448 477.3C448 381.6 370.4 304 274.7 304z"></path>
+        </svg>
+    </div>
+    <p class="name-client">Andy
+        <span>CEO
+        </span>
+    </p>
+    </div>
+    </div>
+    </div>
+<footer>
+  &copy; 2025 NEXO Group. All rights reserved.
+</footer>
 </body>
 </html>
