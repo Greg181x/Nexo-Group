@@ -6,36 +6,41 @@
     <title>About NEXO Group</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Dots&family=Poppins:wght@200;600&display=swap" rel="stylesheet">
     <style>
-        /* 1. FUNDAL ȘI BAZĂ */
         body {
             background-image: url("background.png");
             background-repeat: no-repeat;
             background-size: cover;
             background-position: center;
-            background-attachment: fixed; /* Recomandat pentru fundaluri mari */
+            background-attachment: fixed;
             margin: 0;
             padding: 0;
         }
 
-        /* 2. ANIMAȚIE GLOBALĂ (Definită o singură dată) */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        /* --- PROGRES BAR --- */
+        #progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #2E4F7A, #32a6ff);
+            width: 0%;
+            z-index: 10000;
+            transition: width 0.25s ease-out;
         }
 
-        /* 3. NAVBAR ȘI NAVLINKS */
+        /* --- ANIMATIE LOOK --- */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- NAVIGATION (Logo scos) --- */
         .navbar {
             position: relative;
             z-index: 1000;
-            padding: 20px;
+            padding: 30px 0;
         }
 
         .navlinks {
@@ -75,7 +80,7 @@
             width: 100%;
         }
 
-        /* 4. TITLURI ȘI TEXT */
+        /* --- TYPOGRAPHY --- */
         h1 {
             margin-top: 100px;
             color: white;
@@ -87,14 +92,12 @@
             animation-delay: 0.3s;
         }
 
-        /* Subtitlul dinamic (Vision/Mission) */
-        h3#typing-text {
+        h3 {
             margin: 100px auto 0;
             color: white;
             font-family: "Zen Dots", sans-serif;
             font-size: 2rem;
             text-align: center;
-            min-height: 1.2em; /* Previne săritura textului */
         }
 
         h4 {
@@ -114,7 +117,6 @@
             font-family: "Zen Dots", sans-serif;
             font-size: 2rem;
             text-align: center;
-            /* Am scos animația CSS typing pentru că se bătea cu JS-ul */
             opacity: 0;
             animation: fadeInUp 0.8s ease-out forwards;
             animation-delay: 1.3s;
@@ -125,17 +127,15 @@
             color: white;
             font-family: "Zen Dots", sans-serif;
             text-align: center;
-            line-height: 1.8;
             opacity: 0;
             animation: fadeInUp 0.8s ease-out forwards;
             animation-delay: 1.6s;
         }
 
-        /* 5. STAFF CARDS */
+        /* --- CARD DESIGN (Păstrat originalul tău complex) --- */
         .staff-wrapper {
             display: flex;
             justify-content: center;
-            margin-bottom: 100px;
         }
 
         .staff {
@@ -145,6 +145,7 @@
             align-items: center;
             justify-content: center;
             margin-top: 60px;
+            margin-bottom: 100px;
         }
 
         .card-client {
@@ -159,6 +160,33 @@
             font-family: "Poppins", sans-serif;
             transition: all 0.4s ease;
             position: relative;
+            overflow: hidden;
+        }
+
+        .card-client::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(120deg, #2E4F7A, #7cdacc, #2E4F7A, #7cdacc);
+            background-size: 400% 400%;
+            transition: all 0.5s ease;
+            filter: blur(20px);
+            opacity: 0;
+            z-index: 0;
+        }
+
+        .card-client:hover::before {
+            opacity: 0.4;
+            animation: gradientShift 3s linear infinite;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
         .card-client:hover {
@@ -167,39 +195,20 @@
             border-color: #2E4F7A;
         }
 
-        .user-picture {
-            width: 5rem;
-            height: 5rem;
-            margin: auto;
-        }
+        .card-client * { position: relative; z-index: 1; }
 
         .user-picture svg {
             width: 2.5rem;
-            fill: white;
+            fill: currentColor;
+            transition: transform 0.4s ease;
         }
 
-        .name-client {
-            margin-top: 20px;
-            font-weight: 600;
-            font-size: 18px;
+        .card-client:hover .user-picture svg {
+            transform: rotate(-10deg) scale(1.2);
         }
 
-        .name-client span {
-            display: block;
-            font-weight: 200;
-            font-size: 16px;
-        }
-
-        /* 6. ALTE ELEMENTE */
-        #progress-bar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 5px;
-            background: linear-gradient(90deg, #2E4F7A, #32a6ff);
-            width: 0%;
-            z-index: 10000;
-        }
+        .name-client { margin: 20px 0 0; font-weight: 600; font-size: 18px; }
+        .name-client span { display: block; font-weight: 200; font-size: 16px; }
 
         footer {
             color: white;
@@ -207,15 +216,6 @@
             text-align: center;
             margin-top: 250px;
             padding-bottom: 50px;
-        }
-
-        /* 7. RESPONSIVE (Păstrat din codul tău) */
-        @media (max-width: 768px) {
-            .navlinks {
-                display: none; /* Aici poți adăuga meniul burger */
-            }
-            h1 { font-size: 1.8rem; }
-            h3 { font-size: 1.5rem; }
         }
     </style>
 </head>
@@ -250,31 +250,31 @@ across multiple industries. <br>Current pillars include Esports and Creative, wi
     Rooted in Germany and shaped by a global mindset, Nexo Esports aims to become a sustainable and <br>influential presence in modern esports by combining competition, creativity, and long-term growth.</p>
 </div>
 
-<h3 style="color: white; font-family: 'Zen Dots'; text-align: center; margin-top: 150px;">NEXO Staff</h3>
+<h3 style="margin-top: 150px;">NEXO Staff</h3>
 
 <div class="staff-wrapper">
     <div class="staff">
         <div class="card-client">
             <div class="user-picture">
-                <svg viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M224 256c70.7 0 128-57.31 128-128s-57.3-128-128-128C153.3 0 96 57.31 96 128S153.3 256 224 256zM274.7 304H173.3C77.61 304 0 381.6 0 477.3c0 19.14 15.52 34.67 34.66 34.67h378.7C432.5 512 448 496.5 448 477.3C448 381.6 370.4 304 274.7 304z"></path></svg>
+                <svg viewBox="0 0 448 512"><path d="M224 256c70.7 0 128-57.31 128-128s-57.3-128-128-128C153.3 0 96 57.31 96 128S153.3 256 224 256zM274.7 304H173.3C77.61 304 0 381.6 0 477.3c0 19.14 15.52 34.67 34.66 34.67h378.7C432.5 512 448 496.5 448 477.3C448 381.6 370.4 304 274.7 304z"></path></svg>
             </div>
             <p class="name-client">KINGBOSSALI22<span>Owner</span></p>
         </div>
         <div class="card-client">
             <div class="user-picture">
-                <svg viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M224 256c70.7 0 128-57.31 128-128s-57.3-128-128-128C153.3 0 96 57.31 96 128S153.3 256 224 256zM274.7 304H173.3C77.61 304 0 381.6 0 477.3c0 19.14 15.52 34.67 34.66 34.67h378.7C432.5 512 448 496.5 448 477.3C448 381.6 370.4 304 274.7 304z"></path></svg>
+                <svg viewBox="0 0 448 512"><path d="M224 256c70.7 0 128-57.31 128-128s-57.3-128-128-128C153.3 0 96 57.31 96 128S153.3 256 224 256zM274.7 304H173.3C77.61 304 0 381.6 0 477.3c0 19.14 15.52 34.67 34.66 34.67h378.7C432.5 512 448 496.5 448 477.3C448 381.6 370.4 304 274.7 304z"></path></svg>
             </div>
             <p class="name-client">Osiris<span>Co Owner</span></p>
         </div>
         <div class="card-client">
             <div class="user-picture">
-                <svg viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M224 256c70.7 0 128-57.31 128-128s-57.3-128-128-128C153.3 0 96 57.31 96 128S153.3 256 224 256zM274.7 304H173.3C77.61 304 0 381.6 0 477.3c0 19.14 15.52 34.67 34.66 34.67h378.7C432.5 512 448 496.5 448 477.3C448 381.6 370.4 304 274.7 304z"></path></svg>
+                <svg viewBox="0 0 448 512"><path d="M224 256c70.7 0 128-57.31 128-128s-57.3-128-128-128C153.3 0 96 57.31 96 128S153.3 256 224 256zM274.7 304H173.3C77.61 304 0 381.6 0 477.3c0 19.14 15.52 34.67 34.66 34.67h378.7C432.5 512 448 496.5 448 477.3C448 381.6 370.4 304 274.7 304z"></path></svg>
             </div>
             <p class="name-client">Lamine<span>Co Owner</span></p>
         </div>
         <div class="card-client">
             <div class="user-picture">
-                <svg viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M224 256c70.7 0 128-57.31 128-128s-57.3-128-128-128C153.3 0 96 57.31 96 128S153.3 256 224 256zM274.7 304H173.3C77.61 304 0 381.6 0 477.3c0 19.14 15.52 34.67 34.66 34.67h378.7C432.5 512 448 496.5 448 477.3C448 381.6 370.4 304 274.7 304z"></path></svg>
+                <svg viewBox="0 0 448 512"><path d="M224 256c70.7 0 128-57.31 128-128s-57.3-128-128-128C153.3 0 96 57.31 96 128S153.3 256 224 256zM274.7 304H173.3C77.61 304 0 381.6 0 477.3c0 19.14 15.52 34.67 34.66 34.67h378.7C432.5 512 448 496.5 448 477.3C448 381.6 370.4 304 274.7 304z"></path></svg>
             </div>
             <p class="name-client">Andy<span>CEO</span></p>
         </div>
@@ -286,7 +286,7 @@ across multiple industries. <br>Current pillars include Esports and Creative, wi
 </footer>
 
 <script>
-    // 1. Progress Bar logic
+    // Progress Bar
     window.addEventListener('scroll', () => {
         const scrollTop = document.documentElement.scrollTop;
         const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
@@ -294,15 +294,15 @@ across multiple industries. <br>Current pillars include Esports and Creative, wi
         document.getElementById('progress-bar').style.width = scrollPercent + '%';
     });
 
-    // 2. Typing Effect (Vision, Mission, Future)
+    // Typing Effect cu textele tale originale
     const texts = ["Our Vision", "Our Mission", "Our Future"];
-    let textIdx = 0;
-    const typingEl = document.getElementById('typing-text');
+    let index = 0;
+    const el = document.getElementById('typing-text');
 
     function typeWriter(text, i = 0) {
-        if (i < text.length) {
-            typingEl.innerHTML = text.substring(0, i + 1);
-            setTimeout(() => typeWriter(text, i + 1), 100);
+        if(i < text.length){
+            el.innerHTML = text.substring(0, i+1);
+            setTimeout(() => typeWriter(text, i+1), 100);
         } else {
             setTimeout(() => {
                 deleteEffect(text);
@@ -312,15 +312,15 @@ across multiple industries. <br>Current pillars include Esports and Creative, wi
 
     function deleteEffect(text, i = text.length) {
         if (i >= 0) {
-            typingEl.innerHTML = text.substring(0, i);
+            el.innerHTML = text.substring(0, i);
             setTimeout(() => deleteEffect(text, i - 1), 50);
         } else {
-            textIdx = (textIdx + 1) % texts.length;
-            typeWriter(texts[textIdx]);
+            index = (index + 1) % texts.length;
+            typeWriter(texts[index]);
         }
     }
 
-    typeWriter(texts[textIdx]);
+    typeWriter(texts[index]);
 </script>
 
 </body>
