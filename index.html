@@ -43,16 +43,6 @@
     animation: fadeInUp 0.8s ease-out forwards;
     animation-delay: 0.1s;
  }
-  @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
  .navlinks a{
        color: white;
    text-decoration: none;
@@ -66,17 +56,16 @@
  .navlinks a::after {
   content: "";
   position: absolute;
-  left: 50%;            /* porneste din centru */
-  bottom: -4px;         /* distanta fata de text */
-  width: 0;             /* initial invizibil */
-  height: 4px;          /* grosimea liniei */
+  left: 50%;            
+  bottom: -4px;         
+  width: 0;             
+  height: 4px;          
   background-color: #2E4F7A;
-   transform: translateX(-50%); /* centrăm linia */
+   transform: translateX(-50%); 
   transition: width 0.4s ease, left 0.4s ease;
-  transform: translateX(-50%); /* centrăm linia */
 }
 .navlinks a:hover::after {
-  width: 100%; /* linia se intinde complet */
+  width: 100%; 
 }
 h3 {
     margin: 100px auto 0;
@@ -84,16 +73,12 @@ h3 {
     font-family: "Zen Dots", sans-serif;
     font-size: 2rem;
     text-align: center;
-
     white-space: nowrap;
     overflow: hidden;
-
     width: 0;
     animation: typing 2s steps(22, end) forwards;
     animation-delay: 0.9s;
 }
-
-
 @keyframes typing {
     from { width: 0; }
     to { width: 22ch; }
@@ -104,21 +89,11 @@ h3 {
   font-family: "Zen Dots", sans-serif;
   font-size: 2rem;
   text-align: center;
-
   white-space: nowrap;
   overflow: hidden;
-width: 22ch; /* lățimea finală a textului */
-  max-width: 90%; /* responsive pe mobil */
-
   width: 0;
   animation: typing 2s steps(22, end) forwards;
 }
-@keyframes typing {
-  from { width: 0; }
-  to { width: 22ch; }
-}
-
-
       h4{
         margin-top: 100px;
         color: white;
@@ -129,16 +104,6 @@ width: 22ch; /* lățimea finală a textului */
     animation: fadeInUp 0.8s ease-out forwards;
     animation-delay: 0.7s;
 }
- @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
 
 /* From Uiverse.io by marwam112010 */ 
 .pack-container {
@@ -149,13 +114,12 @@ width: 22ch; /* lățimea finală a textului */
   flex-direction: column;
   border-radius: 12px;
   margin-top: 150px;
- background-color: black;
+  background-color: black;
   border: 1px solid #fff;
   padding: 1.6rem;
   color: #fff;
   box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
 }
-
 .header {
   position: relative;
   margin: 0;
@@ -167,7 +131,6 @@ width: 22ch; /* lățimea finală a textului */
   padding-bottom: 1rem;
   text-align: center;
 }
-
 .title {
   display: block;
   font-family: sans-serif;
@@ -176,68 +139,24 @@ width: 22ch; /* lățimea finală a textului */
   text-transform: uppercase;
   color: #fff
 }
-
-.price-container {
-  margin-top: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 4px;
-  font-family: sans-serif;
-  font-size: 4.5rem;
-  line-height: 1;
-}
-
-.price-container span:first-child {
-  margin-top: 10px;
-  font-size: 2.25rem;
-  line-height: 2.5rem;
-}
-
-.price-container span:last-child {
-  align-self: flex-end;
-  font-size: 2.25rem;
-  line-height: 2.5rem;
-}
-
 .lists {
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
-
 .list {
   display: flex;
   align-items: center;
   gap: 10px;
 }
-
-.list span {
-  border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.24);
-  background-color: rgba(255, 255, 255, 0.185);
-  height: 30px;
-  width: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.list span svg {
-  height: 12px;
-  width: 12px;
-}
-
 .list p {
   display: block;
   font-family: sans-serif;
 }
-
 .button-container {
   margin-top: 20px;
   padding: 0;
 }
-
 .button-container button {
   display: block;
   width: 100%;
@@ -258,12 +177,11 @@ justify-content: center;
   flex-wrap: wrap; 
 }
 .pack-container {
-  opacity: 0;                  
+  opacity: 0;                     
   transform: translateY(20px); 
   transition: opacity 0.6s ease, transform 0.6s ease;
   animation-delay: 1s;
 }
-
 .pack-container.show {
   opacity: 1;
   transform: translateY(0);
@@ -294,87 +212,7 @@ footer{
 .packs a{
   text-decoration: none;
 }
-.hamburger {
-  display: none;
-  flex-direction: column;
-  cursor: pointer;
-  gap: 5px;
-}
 
-.hamburger span {
-  width: 25px;
-  height: 3px;
-  background: white;
-}
-@media (max-width: 768px) {
-
-  h1 {
-    font-size: 2rem;
-    margin-top: 60px;
-    text-align: center;
-  }
-
-  h3 {
-    font-size: 1.5rem;
-    text-align: center;
-  }
-
-  h4 {
-    font-size: 0.9rem;
-    padding: 0 10px;
-  }
-
-  .hamburger {
-    display: flex;
-  }
-
-    .navlinks {
-        flex-direction: column;
-        position: absolute;
-        top: 70px;
-        left: 0;
-        width: 100%;
-        background: rgba(0,0,0,0.95);
-        padding: 20px 0;
-        gap: 20px;
-
-        display: none; /* ascuns inițial */
-        z-index: 100;
-    }
-
-    #menu-toggle:checked ~ .navlinks {
-        display: flex; /* afișează când checkbox-ul e bifat */
-    }
-
-  .navlinks.active {
-    display: flex;
-  }
-
-  .packs {
-    gap: 40px;
-  }
-
-  .pack-container {
-    max-width: 90%;
-  }
-
-  .socials img {
-    width: 32px;
-    height: 32px;
-  }
-}
-@media (max-width: 768px) {
-  .typing-title {
-    font-size: 1.5rem;
-    width: 18ch;
-    animation: typing-mobile 2s steps(18, end) forwards;
-  }
-
-  @keyframes typing-mobile {
-    from { width: 0; }
-    to { width: 18ch; }
-  }
-}
 #menu-toggle {
   display: none;
 }
@@ -384,74 +222,67 @@ footer{
   cursor: pointer;
   gap: 5px;
 }
-
 .hamburger span {
   width: 25px;
   height: 3px;
   background: white;
   transition: 0.3s;
 }
-@media (max-width: 768px) {
 
+/* RESPONSIVE */
+@media (max-width: 768px) {
   .hamburger {
     display: flex;
     background-color: black;
+    padding: 12px;
+    border-radius: 10px;
+    z-index: 1001;
+    position: absolute;
+    top: 20px;
+    right: 20px;
   }
-
-   .navlinks {
+  
+  .navlinks {
+    flex-direction: column;
     position: absolute;
     top: 70px;
     left: 0;
     width: 100%;
     background: rgba(0,0,0,0.95);
-
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
     padding: 20px 0;
-
-    opacity: 0;
-    transform: translateY(-10px);
-    pointer-events: none;
-
-    transition: opacity 0.3s ease, transform 0.3s ease;
-  }
-
-  #menu-toggle:checked ~ .navlinks {
+    gap: 20px;
+    z-index: 100;
+    
+    /* REPARAȚIA: Folosim display:none ca să nu rămână blocat deschis */
+    display: none; 
+    animation: none;
     opacity: 1;
-    transform: translateY(0);
-    pointer-events: auto;
   }
+
+  /* AFIȘARE CÂND E BIFAT */
+  #menu-toggle:checked ~ .navlinks {
+    display: flex;
+  }
+  
+  h1 { font-size: 2rem; margin-top: 60px; }
+  .typing-title { font-size: 1.5rem; width: 18ch; }
 }
+
 #menu-toggle:checked + .hamburger span:nth-child(1) {
   transform: rotate(45deg) translate(5px, 5px);
 }
-
 #menu-toggle:checked + .hamburger span:nth-child(2) {
   opacity: 0;
 }
-
 #menu-toggle:checked + .hamburger span:nth-child(3) {
   transform: rotate(-45deg) translate(5px, -5px);
 }
+
 .navbar {
   position: relative;
   z-index: 1000;
 }
-@media (max-width: 768px) {
 
-  .hamburger {
-    display: flex;
-    background-color: black;
-    padding: 12px;              
-    border-radius: 10px;
-    z-index: 1001;
-  }
-
-  .hamburger span {
-    background: white;
-  }
-}
 .counters {
   display: flex;
   justify-content: center;
@@ -460,26 +291,16 @@ footer{
   flex-wrap: wrap;
   text-align: center;
 }
-
 .counter span {
   font-size: 3rem;
   font-family: "Zen Dots", sans-serif;
   color: white;
   display: block;
 }
-
 .counter p {
   font-family: "Zen Dots", sans-serif;
   color: white;
   margin-top: 10px;
-}
-@media (max-width: 768px) {
-  .counter-number {
-    font-size: 2rem;
-  }
-  .counters {
-    gap: 30px;
-  }
 }
 #progress-bar {
   position: fixed;
@@ -491,31 +312,19 @@ footer{
   z-index: 10000;
   transition: width 0.25s ease-out;
 }
- </style>
+</style>
 </head>
 <body>
-    <!-- Plasează chiar după <body> -->
 <div id="progress-bar"></div>
-<script>
-window.addEventListener('scroll', () => {
-  const scrollTop = document.documentElement.scrollTop;
-  const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
-  const scrollPercent = (scrollTop / scrollHeight) * 100;
-  document.getElementById('progress-bar').style.width = scrollPercent + '%';
-});
-</script>
+
 <nav class="navbar">
-  <div class="logo">NEXO</div>
-
-    <input type="checkbox" id="menu-toggle">
-
-  <!-- hamburger -->
+  <div class="logo" style="color:white; font-family:'Zen Dots'; padding: 20px;">NEXO</div>
+  <input type="checkbox" id="menu-toggle">
   <label for="menu-toggle" class="hamburger">
     <span></span>
     <span></span>
     <span></span>
   </label>
-
   <div class="navlinks" id="navlinks">
     <a href="index.html">HOME</a>
     <a href="about.html">ABOUT</a>
@@ -526,266 +335,33 @@ window.addEventListener('scroll', () => {
   </div>
 </nav>
 
-    <h1>WELCOME TO NEXO<br>GROUP</h1>
-    <h4>Nexo Group is a future-focused initiative designed to build, connect, and scale talent, teams, and ideas<br>
-across multiple industries.</h4>
-    <h3 class="typing-title">NEXO Divisions</h3>
-    <div class="packs">
-   <!-- From Uiverse.io by marwam112010 --> 
- <div class="pack-container">
-    <div class="header">
-      <p class="title">
-        Nexo eSports
-      </p>
+<h1>WELCOME TO NEXO<br>GROUP</h1>
+<h4>Nexo Group is a future-focused initiative designed to build, connect, and scale talent, teams, and ideas.</h4>
+<h3 class="typing-title">NEXO Divisions</h3>
+
+<div class="packs">
+    <div class="pack-container">
+        <div class="header"><p class="title">Nexo eSports</p></div>
+        <ul class="lists">
+            <li class="list"><p>Focus: Supercell Titles</p></li>
+            <li class="list"><p>Level: Semi-Pro</p></li>
+        </ul>
+        <div class="button-container"><button>More Info</button></div>
     </div>
-    <div>
-      <ul class="lists">
-        <li class="list">
-          <span>
-            <svg aria-hidden="true" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M4.5 12.75l6 6 9-13.5" stroke-linejoin="round" stroke-linecap="round"></path>
-            </svg>
-          </span>
-          <p>
-          Focus: Supercell Titles
-          </p>
-        </li>
-        <li class="list">
-          <span>
-            <svg aria-hidden="true" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M4.5 12.75l6 6 9-13.5" stroke-linejoin="round" stroke-linecap="round"></path>
-            </svg>
-          </span>
-          <p>
-            Level: Community / Semi-Pro
-          </p>
-        </li>
-        <li class="list">
-          <span>
-            <svg aria-hidden="true" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M4.5 12.75l6 6 9-13.5" stroke-linejoin="round" stroke-linecap="round"></path>
-            </svg>
-          </span>
-          <p>
-          Identity: #NXWIN
-          </p>
-        </li>
-        <li class="list">
-          <span>
-            <svg aria-hidden="true" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M4.5 12.75l6 6 9-13.5" stroke-linejoin="round" stroke-linecap="round"></path>
-            </svg>
-          </span>
-          <p>
-           Activities: Teams, tournaments, etc.
-          </p>
-        </li>
-      </ul>
-    </div>
-    <div class="button-container">
-      <a href="divisions.html">
-      <button type="button">
-        More Info
-      </button>
-      </a>
-    </div>
-  </div>
-  <!-- From Uiverse.io by marwam112010 --> 
- <div class="pack-container">
-    <div class="header">
-      <p class="title">
-        Nexo CREATIVE
-      </p>
-    </div>
-    <div>
-      <ul class="lists">
-        <li class="list">
-          <span>
-            <svg aria-hidden="true" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M4.5 12.75l6 6 9-13.5" stroke-linejoin="round" stroke-linecap="round"></path>
-            </svg>
-          </span>
-          <p>
-          Content Creation
-          </p>
-        </li>
-        <li class="list">
-          <span>
-            <svg aria-hidden="true" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M4.5 12.75l6 6 9-13.5" stroke-linejoin="round" stroke-linecap="round"></path>
-            </svg>
-          </span>
-          <p>
-            Branding
-          </p>
-        </li>
-        <li class="list">
-          <span>
-            <svg aria-hidden="true" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M4.5 12.75l6 6 9-13.5" stroke-linejoin="round" stroke-linecap="round"></path>
-            </svg>
-          </span>
-          <p>
-   Video Production
-          </p>
-        </li>
-        <li class="list">
-          <span>
-            <svg aria-hidden="true" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M4.5 12.75l6 6 9-13.5" stroke-linejoin="round" stroke-linecap="round"></path>
-            </svg>
-          </span>
-          <p>
-  Social Media
-          </p>
-        </li>
-      </ul>
-    </div>
-    <div class="button-container">
-      <a href="divisions.html">
-      <button type="button">
-        More Info
-      </button>
-      </a>
-    </div>
-  </div>
-  <div class="pack-container">
-    <div class="header">
-      <p class="title">
-        Future Divisions
-      </p>
-    </div>
-    <div>
-      <ul class="lists">
-        <li class="list">
-          <span>
-            <svg aria-hidden="true" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M4.5 12.75l6 6 9-13.5" stroke-linejoin="round" stroke-linecap="round"></path>
-            </svg>
-          </span>
-          <p>
-          Coming Soon
-          </p>
-        </li>
-        <li class="list">
-          <span>
-            <svg aria-hidden="true" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M4.5 12.75l6 6 9-13.5" stroke-linejoin="round" stroke-linecap="round"></path>
-            </svg>
-          </span>
-          <p>
-            Coming Soon
-          </p>
-        </li>
-        <li class="list">
-          <span>
-            <svg aria-hidden="true" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M4.5 12.75l6 6 9-13.5" stroke-linejoin="round" stroke-linecap="round"></path>
-            </svg>
-          </span>
-          <p>
-Coming Soon
-          </p>
-        </li>
-        <li class="list">
-          <span>
-            <svg aria-hidden="true" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M4.5 12.75l6 6 9-13.5" stroke-linejoin="round" stroke-linecap="round"></path>
-            </svg>
-          </span>
-          <p>
-  Coming Soon
-          </p>
-        </li>
-      </ul>
-    </div>
-    <div class="button-container">
-      <button type="button">
-        Coming Soon
-      </button>
-    </div>
-  </div>
-  </div>
-  
-  <script>
-  window.addEventListener('DOMContentLoaded', () => {
-    const cards = document.querySelectorAll('.pack-container');
-    cards.forEach((card, index) => {
-      setTimeout(() => {
-        card.classList.add('show');
-      }, index * 200); 
-    });
-  });
-  
-</script>
-<h3 class="typing-title">NEXO Stats</h3>
-<div class="counters">
-  <div class="counter">
-    <span data-target="3144">0</span>
-    <p>Members</p>
-  </div>
-  <div class="counter">
-    <span data-target="8">0</span>
-    <p>Tournaments</p>
-  </div>
-  <div class="counter">
-    <span data-target="10">0</span>
-    <p>Teams</p>
-  </div>
 </div>
+
 <script>
-  const counters = document.querySelectorAll('.counter span');
+window.addEventListener('scroll', () => {
+  const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+  document.getElementById('progress-bar').style.width = scrollPercent + '%';
+});
 
-  const options = {
-    root: null,
-    threshold: 0.5
-  };
-
-  const startCounter = (entry) => {
-    if(entry.isIntersecting){
-      const span = entry.target;
-      const target = +span.getAttribute('data-target');
-      let count = 0;
-      const increment = Math.ceil(target / 200); // viteza animatiei
-
-      const updateCount = () => {
-        count += increment;
-        if(count > target) count = target;
-        span.textContent = count;
-        if(count < target) requestAnimationFrame(updateCount);
-      };
-
-      updateCount();
-      observer.unobserve(span);
-    }
-  };
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(startCounter);
-  }, options);
-
-  counters.forEach(counter => {
-    observer.observe(counter);
+window.addEventListener('DOMContentLoaded', () => {
+  const cards = document.querySelectorAll('.pack-container');
+  cards.forEach((card, index) => {
+    setTimeout(() => card.classList.add('show'), index * 200);
   });
+});
 </script>
-<h3 class="typing-title">NEXO Socials</h3>
-<h4>Help NEXO Group by Joining our Socials</h4>
-<div class="socials">
-  <a href="https://discord.gg/GnzxwbP66">
-<img src="https://static.wixstatic.com/media/10c80d_a9e8fb939735489bbdc29eb3b04934b0~mv2.png">
-</a>
-<a href="https://www.instagram.com/nex_oesports?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">
-<img src="https://static.wixstatic.com/media/10c80d_4ceb22a5fda24118abd7603d537ed480~mv2.png">
-</a>
-<a href="https://x.com/greg_esports?t=WgezL2ohru8kL-PVRLrZBQ&s=09">
-<img src="https://static.wixstatic.com/media/10c80d_bac6921ada5e431189782da1966d9824~mv2.png">
-</a>
-</div>
-
-
-<footer>
-  &copy; 2025 NEXO Group. All rights reserved.
-</footer>
 </body>
 </html>
-
