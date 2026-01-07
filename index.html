@@ -57,6 +57,9 @@
        color: white;
    text-decoration: none;
    position: relative;
+	 display: inline-block;
+	  width: auto;
+	 text-align: center;
    gap: 30px;
    transition: all 0.4s ease;
  }
@@ -385,34 +388,29 @@ footer{
 }
 @media (max-width: 768px) {
 
-  .hamburger {
+    .hamburger {
     display: flex;
-    background-color: black;
   }
 
    .navlinks {
-    position: absolute;
-    top: 70px;
-    left: 0;
-    width: 100%;
-    background: rgba(0,0,0,0.95);
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: rgba(0,0,0,0.95);
+        padding: 20px 0;
+        gap: 20px;
 
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    padding: 20px 0;
-
-    opacity: 0;
-    transform: translateY(-10px);
-    pointer-events: none;
-
-    transition: opacity 0.3s ease, transform 0.3s ease;
+        display: none; /* ascuns inițial */
+        z-index: 100;
   }
 
   #menu-toggle:checked ~ .navlinks {
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events: auto;
+ display: flex; /* afișează când checkbox-ul e bifat */
+  }
+	  .navlinks.active {
+    display: flex;
   }
 }
 #menu-toggle:checked + .hamburger span:nth-child(1) {
@@ -429,8 +427,7 @@ footer{
 .navbar {
   position: relative;
   z-index: 1000;
-}
-@media (max-width: 768px) {
+}@media (max-width: 768px) {
 
   .hamburger {
     display: flex;
@@ -443,6 +440,32 @@ footer{
   .hamburger span {
     background: white;
   }
+     .navlinks a{
+       color: white;
+   text-decoration: none;
+   gap: 30px;
+   position: relative;
+   transition: all 0.4s ease;
+ }
+ .navlinks a:hover{
+    color: #2E4F7A;
+ }
+  .navlinks a::after {
+  content: "";
+  position: absolute;
+  left: 50%;            /* porneste din centru */
+  bottom: -4px;         /* distanta fata de text */
+  width: 0;             /* initial invizibil */
+  height: 4px;          /* grosimea liniei */
+  background-color: #2E4F7A;
+   transform: translateX(-50%); /* centrăm linia */
+  transition: width 0.4s ease, left 0.4s ease;
+  transform: translateX(-50%); /* centrăm linia */
+}
+.navlinks a:hover::after {
+  width: 100%; /* linia se intinde complet */
+}
+
 }
 .counters {
   display: flex;
@@ -780,3 +803,4 @@ Coming Soon
 </footer>
 </body>
 </html>
+
