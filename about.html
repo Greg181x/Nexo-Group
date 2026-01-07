@@ -3,176 +3,219 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About NEXO</title>
+    <title>About NEXO Group</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap" rel="stylesheet">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
+        /* 1. FUNDAL ȘI BAZĂ */
         body {
-            background-color: #050505;
             background-image: url("background.png");
             background-repeat: no-repeat;
             background-size: cover;
             background-position: center;
-            background-attachment: fixed;
-            color: white;
-            font-family: "Zen Dots", sans-serif;
-            overflow-x: hidden;
+            background-attachment: fixed; /* Recomandat pentru fundaluri mari */
+            margin: 0;
+            padding: 0;
         }
 
-        /* Navigație */
+        /* 2. ANIMAȚIE GLOBALĂ (Definită o singură dată) */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* 3. NAVBAR ȘI NAVLINKS */
         .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 5%;
             position: relative;
             z-index: 1000;
+            padding: 20px;
         }
 
-        .logo { font-size: 1.5rem; }
-
         .navlinks {
+            font-family: "Zen Dots", sans-serif;
             display: flex;
-            gap: 30px;
+            gap: 50px;
+            justify-content: center;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out forwards;
+            animation-delay: 0.1s;
         }
 
         .navlinks a {
             color: white;
             text-decoration: none;
-            font-size: 0.9rem;
-            transition: 0.3s;
             position: relative;
+            transition: all 0.4s ease;
         }
 
-        /* Hamburger Logic */
-        #menu-toggle { display: none; }
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            gap: 5px;
-            cursor: pointer;
-            z-index: 1100;
-        }
-        .hamburger span {
-            width: 30px;
-            height: 3px;
-            background: white;
-            transition: 0.3s;
+        .navlinks a:hover {
+            color: #2E4F7A;
         }
 
-        /* Titluri și Animații */
+        .navlinks a::after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            bottom: -4px;
+            width: 0;
+            height: 4px;
+            background-color: #2E4F7A;
+            transform: translateX(-50%);
+            transition: width 0.4s ease;
+        }
+
+        .navlinks a:hover::after {
+            width: 100%;
+        }
+
+        /* 4. TITLURI ȘI TEXT */
         h1 {
-            margin-top: 50px;
-            font-size: 2.5rem;
+            margin-top: 100px;
+            color: white;
+            font-family: "Zen Dots", sans-serif;
+            font-size: 3rem;
             text-align: center;
             opacity: 0;
             animation: fadeInUp 0.8s ease-out forwards;
+            animation-delay: 0.3s;
         }
 
-        #typing-text {
-            margin: 20px auto;
-            font-size: 1.5rem;
-            color: #2E4F7A;
+        /* Subtitlul dinamic (Vision/Mission) */
+        h3#typing-text {
+            margin: 100px auto 0;
+            color: white;
+            font-family: "Zen Dots", sans-serif;
+            font-size: 2rem;
             text-align: center;
-            min-height: 1.5em;
+            min-height: 1.2em; /* Previne săritura textului */
+        }
+
+        h4 {
+            margin-top: 100px;
+            color: white;
+            font-family: "Zen Dots", sans-serif;
+            font-size: 1rem;
+            text-align: center;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out forwards;
+            animation-delay: 0.9s;
         }
 
         .about h3 {
-            margin: 60px auto 20px;
+            margin: 100px auto 0;
+            color: white;
+            font-family: "Zen Dots", sans-serif;
             font-size: 2rem;
             text-align: center;
-            overflow: hidden;
-            white-space: nowrap;
-            border-right: 3px solid #2E4F7A; /* Cursor efect */
-            width: 0;
-            animation: typingAbout 2s steps(10, end) forwards;
-            animation-delay: 1s;
-        }
-
-        @keyframes typingAbout {
-            from { width: 0; }
-            to { width: 10ch; } /* "About Us" are ~8-10 caractere */
+            /* Am scos animația CSS typing pentru că se bătea cu JS-ul */
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out forwards;
+            animation-delay: 1.3s;
         }
 
         .about p {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 20px;
+            margin-top: 100px;
+            color: white;
+            font-family: "Zen Dots", sans-serif;
             text-align: center;
-            line-height: 1.6;
+            line-height: 1.8;
             opacity: 0;
             animation: fadeInUp 0.8s ease-out forwards;
-            animation-delay: 1.5s;
+            animation-delay: 1.6s;
         }
 
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+        /* 5. STAFF CARDS */
+        .staff-wrapper {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 100px;
         }
 
-        /* Staff Cards */
         .staff {
             display: flex;
             flex-wrap: wrap;
-            gap: 20px;
+            gap: 40px;
+            align-items: center;
             justify-content: center;
-            margin-top: 40px;
-            padding: 20px;
+            margin-top: 60px;
         }
 
         .card-client {
-            background: rgba(17, 17, 17, 0.9);
-            width: 250px;
-            padding: 30px;
-            border: 1px solid #ffffff33;
+            background: linear-gradient(145deg, #000000, #111111);
+            width: 13rem;
+            padding: 25px 20px;
+            border: 2px solid #ffffff;
+            box-shadow: 0 6px 10px rgba(207, 212, 222, 0.1);
             border-radius: 15px;
             text-align: center;
-            transition: 0.4s;
+            color: #fff;
+            font-family: "Poppins", sans-serif;
+            transition: all 0.4s ease;
+            position: relative;
         }
 
-        .card-client:hover { transform: translateY(-10px); border-color: #2E4F7A; }
-
-        /* Responsive Mobil */
-        @media (max-width: 768px) {
-            h1 { font-size: 1.8rem; }
-            .about h3 { font-size: 1.4rem; }
-            
-            .hamburger { display: flex; }
-
-            .navlinks {
-                position: fixed;
-                top: 0;
-                right: -100%;
-                width: 80%;
-                height: 100vh;
-                background: rgba(0, 0, 0, 0.98);
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                transition: 0.4s ease;
-                z-index: 1050;
-            }
-
-            #menu-toggle:checked ~ .navlinks {
-                right: 0;
-            }
-
-            /* Transformare Hamburger în X */
-            #menu-toggle:checked + .hamburger span:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); }
-            #menu-toggle:checked + .hamburger span:nth-child(2) { opacity: 0; }
-            #menu-toggle:checked + .hamburger span:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); }
+        .card-client:hover {
+            transform: translateY(-15px) scale(1.05);
+            box-shadow: 0 20px 30px rgba(46, 79, 122, 0.5);
+            border-color: #2E4F7A;
         }
 
+        .user-picture {
+            width: 5rem;
+            height: 5rem;
+            margin: auto;
+        }
+
+        .user-picture svg {
+            width: 2.5rem;
+            fill: white;
+        }
+
+        .name-client {
+            margin-top: 20px;
+            font-weight: 600;
+            font-size: 18px;
+        }
+
+        .name-client span {
+            display: block;
+            font-weight: 200;
+            font-size: 16px;
+        }
+
+        /* 6. ALTE ELEMENTE */
         #progress-bar {
             position: fixed;
             top: 0;
             left: 0;
-            height: 4px;
-            background: #2E4F7A;
-            z-index: 2000;
+            height: 5px;
+            background: linear-gradient(90deg, #2E4F7A, #32a6ff);
+            width: 0%;
+            z-index: 10000;
+        }
+
+        footer {
+            color: white;
+            font-family: "Zen Dots", sans-serif;
+            text-align: center;
+            margin-top: 250px;
+            padding-bottom: 50px;
+        }
+
+        /* 7. RESPONSIVE (Păstrat din codul tău) */
+        @media (max-width: 768px) {
+            .navlinks {
+                display: none; /* Aici poți adăuga meniul burger */
+            }
+            h1 { font-size: 1.8rem; }
+            h3 { font-size: 1.5rem; }
         }
     </style>
 </head>
@@ -181,13 +224,6 @@
 <div id="progress-bar"></div>
 
 <nav class="navbar">
-    <div class="logo">NEXO</div>
-    <input type="checkbox" id="menu-toggle">
-    <label for="menu-toggle" class="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
-    </label>
     <div class="navlinks">
         <a href="index.html">HOME</a>
         <a href="about.html">ABOUT</a>
@@ -199,61 +235,92 @@
 </nav>
 
 <h1>About NEXO Group</h1>
+
 <h3 id="typing-text"></h3>
+
+<h4>Nexo Group is a future-focused initiative designed to build, connect, and scale talent, teams, and ideas
+across multiple industries. <br>Current pillars include Esports and Creative, with room for future divisions.</h4>
 
 <div class="about">
     <h3>About Us</h3>
-    <p>Nexo Esports is a German-based esports organization founded in 2025. Built with a forward-thinking vision, we focus on developing competitive talent and fostering strong teams.</p>
+    <p>Nexo Esports is a German-based esports organization founded in 2025 as part of the broader Nexo Group <br>ecosystem. Built with a forward-thinking vision, Nexo Esports focuses on developing competitive talent, <br>fostering strong teams, and creating innovative opportunities within the esports industry.
+    <br><br>
+    As a core pillar of Nexo Group, the organization is driven by a mission to build, connect, and scale talent, <br>teams, and ideas across multiple industries. Alongside Esports, Nexo Group currently operates within the <br>Creative sector, with the flexibility to expand into additional divisions in the future.
+    <br><br>
+    Rooted in Germany and shaped by a global mindset, Nexo Esports aims to become a sustainable and <br>influential presence in modern esports by combining competition, creativity, and long-term growth.</p>
 </div>
 
-<div class="staff">
-    <div class="card-client">
-        <p class="name-client">KINGBOSSALI22 <span>Owner</span></p>
-    </div>
-    <div class="card-client">
-        <p class="name-client">Osiris <span>Co-Owner</span></p>
-    </div>
-    <div class="card-client">
-        <p class="name-client">Andy <span>CEO</span></p>
+<h3 style="color: white; font-family: 'Zen Dots'; text-align: center; margin-top: 150px;">NEXO Staff</h3>
+
+<div class="staff-wrapper">
+    <div class="staff">
+        <div class="card-client">
+            <div class="user-picture">
+                <svg viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M224 256c70.7 0 128-57.31 128-128s-57.3-128-128-128C153.3 0 96 57.31 96 128S153.3 256 224 256zM274.7 304H173.3C77.61 304 0 381.6 0 477.3c0 19.14 15.52 34.67 34.66 34.67h378.7C432.5 512 448 496.5 448 477.3C448 381.6 370.4 304 274.7 304z"></path></svg>
+            </div>
+            <p class="name-client">KINGBOSSALI22<span>Owner</span></p>
+        </div>
+        <div class="card-client">
+            <div class="user-picture">
+                <svg viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M224 256c70.7 0 128-57.31 128-128s-57.3-128-128-128C153.3 0 96 57.31 96 128S153.3 256 224 256zM274.7 304H173.3C77.61 304 0 381.6 0 477.3c0 19.14 15.52 34.67 34.66 34.67h378.7C432.5 512 448 496.5 448 477.3C448 381.6 370.4 304 274.7 304z"></path></svg>
+            </div>
+            <p class="name-client">Osiris<span>Co Owner</span></p>
+        </div>
+        <div class="card-client">
+            <div class="user-picture">
+                <svg viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M224 256c70.7 0 128-57.31 128-128s-57.3-128-128-128C153.3 0 96 57.31 96 128S153.3 256 224 256zM274.7 304H173.3C77.61 304 0 381.6 0 477.3c0 19.14 15.52 34.67 34.66 34.67h378.7C432.5 512 448 496.5 448 477.3C448 381.6 370.4 304 274.7 304z"></path></svg>
+            </div>
+            <p class="name-client">Lamine<span>Co Owner</span></p>
+        </div>
+        <div class="card-client">
+            <div class="user-picture">
+                <svg viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M224 256c70.7 0 128-57.31 128-128s-57.3-128-128-128C153.3 0 96 57.31 96 128S153.3 256 224 256zM274.7 304H173.3C77.61 304 0 381.6 0 477.3c0 19.14 15.52 34.67 34.66 34.67h378.7C432.5 512 448 496.5 448 477.3C448 381.6 370.4 304 274.7 304z"></path></svg>
+            </div>
+            <p class="name-client">Andy<span>CEO</span></p>
+        </div>
     </div>
 </div>
+
+<footer>
+    &copy; 2025 NEXO Group. All rights reserved.
+</footer>
 
 <script>
-// Progress Bar
-window.addEventListener('scroll', () => {
-    const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    const scrolled = (winScroll / height) * 100;
-    document.getElementById("progress-bar").style.width = scrolled + "%";
-});
+    // 1. Progress Bar logic
+    window.addEventListener('scroll', () => {
+        const scrollTop = document.documentElement.scrollTop;
+        const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const scrollPercent = (scrollTop / scrollHeight) * 100;
+        document.getElementById('progress-bar').style.width = scrollPercent + '%';
+    });
 
-// Typing Subtitle
-const texts = ["Our Vision", "Our Mission", "Our Future"];
-let textIndex = 0;
-let charIndex = 0;
-const el = document.getElementById('typing-text');
+    // 2. Typing Effect (Vision, Mission, Future)
+    const texts = ["Our Vision", "Our Mission", "Our Future"];
+    let textIdx = 0;
+    const typingEl = document.getElementById('typing-text');
 
-function type() {
-    if (charIndex < texts[textIndex].length) {
-        el.innerHTML += texts[textIndex].charAt(charIndex);
-        charIndex++;
-        setTimeout(type, 100);
-    } else {
-        setTimeout(erase, 2000);
+    function typeWriter(text, i = 0) {
+        if (i < text.length) {
+            typingEl.innerHTML = text.substring(0, i + 1);
+            setTimeout(() => typeWriter(text, i + 1), 100);
+        } else {
+            setTimeout(() => {
+                deleteEffect(text);
+            }, 2000);
+        }
     }
-}
 
-function erase() {
-    if (charIndex > 0) {
-        el.innerHTML = texts[textIndex].substring(0, charIndex - 1);
-        charIndex--;
-        setTimeout(erase, 50);
-    } else {
-        textIndex = (textIndex + 1) % texts.length;
-        setTimeout(type, 500);
+    function deleteEffect(text, i = text.length) {
+        if (i >= 0) {
+            typingEl.innerHTML = text.substring(0, i);
+            setTimeout(() => deleteEffect(text, i - 1), 50);
+        } else {
+            textIdx = (textIdx + 1) % texts.length;
+            typeWriter(texts[textIdx]);
+        }
     }
-}
-type();
+
+    typeWriter(texts[textIdx]);
 </script>
 
 </body>
